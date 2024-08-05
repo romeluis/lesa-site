@@ -1,0 +1,194 @@
+
+/*Variables*/
+* {
+    /*Colours*/
+    --page-background: #FFFFFF;
+    --white: #FFFFFF;
+    --white-hover: #F7F7F7;
+    --black: #000000;
+    --light-grey: #F7F7F7;
+    --dark-grey: #D3D3D3;
+
+    --green: #91BE4A;
+    --green-shadow: #91BE4A90;
+    --green-shadow-transparent: #91BE4A00;
+    --green-accent: #0D594B;
+
+    --pink: #EB6598;
+    --pink-shadow: #eb659890;
+    --pink-shadow-transparent: #eb659800;
+    --pink-accent: #673D79;
+
+    --blue: #80C0DA;
+    --blue-accent: #304793;
+
+    --red: #D93846;
+    
+    /*Spacing*/
+    --body-width: clamp(800px, 80%, 1375px);
+    --section-spacing: 50px;
+
+    --font-adjustment-padding: 4px;
+
+    --nav-item-padding: 14px 17px 10px 17px;
+    --nav-outer-padding: 8px;
+    --nav-item-margin: 10px;
+    --nav-logo-width: 40px;
+
+    --hero-container-margin: 60px;
+    --hero-button-padding: 12px 19px;
+    --hero-button-gap: 22px;
+
+    --events-heading-padding: 0px 0px 50px 0px;
+    --event-spread-gap: 25px;
+    --event-inner-gap: 20px;
+    --event-safety-gap: 30px;
+    --event-item-padding: 25px;
+    --event-more-padding: 25px 50px;
+    --event-item-text-padding: 0px 0px 5px 7px;
+    --event-item-text-spacing-padding: 0px 0px 10px 0px;
+    --events-tag-gap: 10px;
+    --events-tag-padding: calc(4px + var(--font-adjustment-padding)) 15px 5px 15px;
+
+    --about-heading-padding: 0px 0px 50px 0px;
+    --about-section-gap: 45px;
+    --about-sub-section-spacing: 40px;
+    --about-header-margin: 0px 0px 20px 0px;
+    --about-paragraph-margin: 0px 0px 10px 0px;
+
+    --connect-heading-padding: 0px 0px 50px 0px;
+    --connect-spread-gap: 25px;
+    --connect-entry-padding: 35px;
+    --connect-entry-heading-margin: 0px 0px 15px 0px;
+    --connect-entry-heading-separation-margin: 20px 0px 10px 0px;
+    --connect-entry-body-margin: 0px 0px 10px 0px;
+    --connect-button-gap: 10px;
+    --connect-button-inner-gap: 10px;
+    --connect-button-padding: 12px 19px;
+
+    /*Fonts*/
+    --nav-element-font: object_sans_regular;
+    --nav-call-to-action-font: object_sans_bold;
+
+    --hero-heading-font: object_sans_bold;
+    --hero-paragraph-font: object_sans_regular;
+    --hero-button-font: object_sans_bold;
+
+    --events-heading-font: object_sans_bold;
+    --events-date-font: object_sans_bold;
+    --events-name-font: object_sans_regular;
+    --events-info-font: object_sans_regular;
+    --events-tags-font: object_sans_regular;
+
+    --about-heading-font: object_sans_bold;
+    --about-subheading-font: object_sans_bold;
+    --about-paragraph-font: object_sans_regular;
+
+    --connect-heading-font: object_sans_bold;
+    --connect-entry-heading-font: object_sans_bold;
+    --connect-entry-body-font: object_sans_regular;
+    --connect-entry-button-font: object_sans_bold;
+
+    /*Font Sizing*/
+    --nav-font-size: 18px;
+    --nav-call-to-action-font-size: 21px;
+
+    --hero-heading-font-size: min(7vw, 85px);
+    --hero-paragraph-font-size: 25px;
+    --hero-button-font-size: 25px;
+    --hero-button-margin: 50px;
+
+    --events-heading-font-size: 65px;
+    --events-heading-secondary-font-size: 40px;
+    --events-date-font-size: 40px;
+    --events-name-font-size: 30px;
+    --events-info-font-size: 20px;
+    --events-tags-font-size: 15px;
+
+    --about-heading-font-size: 65px;
+    --about-subheading-font-size: 45px;
+    --about-paragraph-font-size: 25px;
+
+    --connect-heading-font-size: 65px;
+    --connect-entry-heading-font-size: 45px;
+    --connect-entry-body-font-size: 25px;
+    --connect-entry-button-font-size: 25px;
+
+    /*Parameters*/
+    --nav-border-radius: 10px;
+
+    --hero-border-radius: 40px;
+    --hero-button-radius: 14px;
+    --hero-border-width: 2px;
+    --hero-button-size: 35px;
+
+    --events-link-size: 45px;
+    --events-more-size: 65px;
+    --events-entry-radius: 40px;
+    --envents-entry-min-width: 325px;
+    --events-tag-border-width: 1px;
+    --events-tag-border-radius: 100px;
+
+    --connect-entry-radius: 40px;
+    --connect-entry-min-width: 360px;
+    --connect-link-size: 35px;
+    --connect-button-radius: 14px;
+    --connect-border-width: 2px;
+
+    --transition-time: 0.25s;
+
+    /* Global Settings */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (max-width: 800px) {
+    * {
+        /*Spacing*/
+        --body-width: 95%;
+    }
+}
+
+/*Default Values*/
+body {
+    display: block;
+    margin: auto;
+    width: var(--body-width);
+}
+
+a {
+    all: unset;
+    text-wrap: nowrap;
+    cursor:pointer
+}
+
+h1 {
+    margin: 0;
+}
+
+/*Fonts*/
+@font-face {
+	font-family: object_sans_regular;
+	src: url("../public/fonts/ObjectSans-Regular.otf");
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: object_sans_bold;
+	src: url("../public/fonts/ObjectSans-Bold.otf");
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: object_sans_thin;
+	src: url("../public/fonts/ObjectSans-Thin.otf");
+
+    font-weight: normal;
+    font-style: normal;
+}
