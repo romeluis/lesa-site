@@ -90,8 +90,8 @@
     --connect-entry-button-font: object_sans_bold;
 
     /*Font Sizing*/
-    --nav-font-size: 18px;
-    --nav-call-to-action-font-size: 21px;
+    --nav-font-size: 1.125rem;
+    --nav-call-to-action-font-size: 1.313rem;
 
     --hero-heading-font-size: min(7vw, 85px);
     --hero-paragraph-font-size: 25px;
