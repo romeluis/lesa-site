@@ -2,6 +2,7 @@
 import "./Navbar.css"
 import logo from "../assets/lesa-logo-stripped-green.svg";
 import hamburgerIcon from "../assets/hamburger-icon.svg"
+import hamburgerIconClosed from "../assets/hamburger-icon-close.svg"
 
 //Tags
 import {Link} from "react-router-dom/cjs/react-router-dom.min";
@@ -35,7 +36,7 @@ const Navbar = () => {
 
             {screenStatus && 
             <div className="nav-hamburger" onClick={() => setMenuStatus(!menuStatus)}>
-                <img className="nav-logo" src={hamburgerIcon} alt="Hamburger Menu"/>
+                <img className="nav-logo" src={!menuStatus ? hamburgerIcon : hamburgerIconClosed} alt="Hamburger Menu"/>
             </div>}
             {screenStatus && menuStatus && 
             <div className="nav-links">
