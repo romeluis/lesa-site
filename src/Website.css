@@ -93,9 +93,9 @@
     --nav-font-size: 1.125rem;
     --nav-call-to-action-font-size: 1.313rem;
 
-    --hero-heading-font-size: min(7vw, 85px);
-    --hero-paragraph-font-size: 25px;
-    --hero-button-font-size: 25px;
+    --hero-heading-font-size: max(6vw, 4rem);
+    --hero-paragraph-font-size: 1.5rem;
+    --hero-button-font-size: 1.5rem;
     --hero-button-margin: 50px;
 
     --events-heading-font-size: 65px;

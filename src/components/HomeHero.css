@@ -92,8 +92,6 @@
     grid-row-start: 3;
     grid-row-end: 4;
 
-    width: max(100%, 290px);
-
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -121,11 +119,11 @@
 
     overflow: hidden;
 }
-#hero-animation lottie-player {
-    display: block;
+#lottie-player {
+    display: flex;
     position: relative;
 
-    object-fit: cover;
+    height: 100%;
 }
 #hero-poster {
     display: block;
