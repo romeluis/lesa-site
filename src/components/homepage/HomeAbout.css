@@ -33,7 +33,6 @@
     gap: var(--about-section-gap);
 
     width: 100%;
-    margin-bottom: var(--about-sub-section-spacing);
 }
 .lesa-description img {
     width: 100%;
@@ -59,26 +58,6 @@
     width: 100%;
     margin-bottom: var(--about-sub-section-spacing);
 }
-.about-spread h2 {
-    display: block;
-    position: relative;
-    margin: var(--about-header-margin);
-
-    font-family: var(--about-subheading-font);
-    font-size: var(--about-subheading-font-size);
-
-    color: var(--green);
-}
-.about-spread p {
-    display: block;
-    position: relative;
-    margin: 0px;
-
-    font-family: var(--about-paragraph-font);
-    font-size: var(--about-paragraph-font-size);
-
-    color: var(--black);
-}
 
 .meet-the-team {
     position: relative;
@@ -94,7 +73,7 @@
     #about-underline{
         display: none;
     }
-    .about h1 {
+    .section-heading {
         display: block;
         position: relative;
         z-index: 2;
@@ -114,7 +93,6 @@
     
         width: 100%;
         height: fit-content;
-        margin-bottom: var(--about-sub-section-spacing);
     }
     .lesa-description p {
         display: block;
@@ -123,12 +101,13 @@
         align-self: start;
 
         font-family: var(--about-paragraph-font);
-        font-size: var(--about-paragraph-font-size);
+        font-size: 1.5rem;
+        padding: 2.5rem;
 
         color: var(--black);
     }
     .lesa-description img {
-        width: 70%;
+        width: 75vw;
         justify-self: center;
     }
     #home-away-from-home {
@@ -139,7 +118,6 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
-        gap: var(--about-section-gap);
     
         width: 100%;
         margin-bottom: var(--about-sub-section-spacing);
@@ -164,7 +142,7 @@
         grid-row: 2 / 3;
     }
     .meet-the-team-image img {
-        width: 70%;
+        width: 75vw;
         justify-self: center;
     }
 }

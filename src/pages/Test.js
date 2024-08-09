@@ -26,7 +26,11 @@ const Test = () => {
     var buttonList = [
         <ButtonLink text="test" fontSize="1.25rem"colour="blue" buttonStyle="fill" useIcon icon={icon} linkTo="/"/>,
         <ButtonLink text="test" fontSize="1.25rem"colour="green" buttonStyle="stroke" bold useIcon icon={iconGreen} linkTo="/"/>
-    ]
+    ];
+
+    var article = [{header:"test", body:["test"]}];
+    var articeltwo = [{header:"Lorem Ipsum", body:["es simplemente el texto de relleno de las imprentas y archivos de texto.", "Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500."]}]
+
     return (  
         <div>
             <h1 style={{marginBottom: "1rem"}}>Tag List Component</h1>
@@ -82,8 +86,8 @@ const Test = () => {
 
             <h1 style={{marginTop: "1rem"}}>Article Component</h1>
             <div style={{display: "flex", gap:"1rem", marginTop: "1rem", alignItems: "center"}}>
-                <Article headerText="Lorem Ipsum" articleStyle="fill" bodyText="es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas" foregroundColour="red" backgroundColour="grey" fontSize="2.5rem" buttons={buttonList}/>
-                <Article headerText="Test Header" bodyText="Test Body" foregroundColour="green" backgroundColour="green" fontSize="2rem" articleStyle="stroke"/>
+                <Article articleInfo={articeltwo} articleStyle="fill" foregroundColour="red" backgroundColour="grey" fontSize="2.5rem" buttons={buttonList}/>
+                <Article articleInfo={article} foregroundColour="green" backgroundColour="green" fontSize="2rem" articleStyle="stroke"/>
             </div>
         </div>
     );

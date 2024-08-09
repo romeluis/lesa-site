@@ -10,11 +10,14 @@
 }
 .article-title {
     font-family: object_sans_bold;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.25em;
+    line-height: 1.1em;
 }
 .article-text {
     font-size: 0.6em;
     font-family: object_sans_regular;
+    margin-bottom: 0.2em;
+    line-height: 1.13em;
 }
 .buttons {
     display: flex;
