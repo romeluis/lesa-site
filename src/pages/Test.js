@@ -24,7 +24,7 @@ const Test = () => {
     return (  
         <div>
             <h1 style={{marginBottom: "1rem"}}>Tag List Component</h1>
-            <TagList tagList={tagList}/>
+            <TagList tagList={tagList} fontSize="1rem"/>
 
             <h1 style={{marginTop: "1rem"}}>Button Component</h1>
             <div style={{display: "flex", gap:"1rem", marginTop: "1rem", alignItems: "center"}}>

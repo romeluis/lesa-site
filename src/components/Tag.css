@@ -1,7 +1,7 @@
 .tagContainer {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5em;
 
     width: 100%;
 }
@@ -9,8 +9,7 @@
 .tag {
     display: block;
     font-family: object_sans_regular;
-    font-size: 1.3rem;
-    border-radius: 20px;
-    border-width: 1px;
-    padding: 8px 17px 6px 17px;
+    border-radius: 2em;
+    border-width: 0.1em;
+    padding: 0.5em 0.9em 0.4em 0.9em;
 }
