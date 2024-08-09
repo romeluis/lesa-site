@@ -98,9 +98,7 @@
     justify-content: space-evenly;
     align-items: center;
 }
-.meet-the-team img {
-    width: 100%;
-}
+
 .meet-the-team h2 {
     display: block;
     position: relative;
@@ -111,7 +109,7 @@
 
     color: var(--green);
 }
-.meet-the-team p {
+#meet-the-team-text {
     display: block;
     position: relative;
     margin: var(--about-paragraph-margin);
@@ -120,39 +118,6 @@
     font-size: var(--about-paragraph-font-size);
 
     color: var(--black);
-}
-.about-primary-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--connect-button-inner-gap);
-    width: fit-content;
-
-    border-style: solid;
-    border-radius: var(--connect-button-radius);
-    border-width: var(--connect-border-width) !important;
-    border-color: var(--green);
-    padding: var(--connect-button-padding);
-
-    transition: var(--transition-time);
-}
-.about-primary-link:hover {
-    background-color: var(--green);
-}
-.about-primary-link p {
-    font-family: var(--connect-entry-button-font) !important;
-    font-size: var(--connect-entry-button-font-size) !important;
-    color: var(--green);
-    margin: 0px !important;
-    padding-top: var(--font-adjustment-padding);
-
-    transition: var(--transition-time);
-}
-.about-primary-link:hover p {
-    color: var(--white);
-}
-.about-primary-link img {
-    width: var(--connect-link-size);
 }
 @media screen and (max-width: 800px) {
     #about-underline{

@@ -54,7 +54,16 @@ const Test = () => {
 
             <ButtonLink text="test" fontSize="1.25rem"colour="orange" buttonStyle="hoverOnly" useIcon icon={icon} linkTo="/"/>
             <ButtonLink text="test" fontSize="1.25rem"colour="orange" buttonStyle="hoverOnly" linkTo="/"/>
-            </div><div style={{display: "flex", gap:"1rem", marginTop: "1rem", alignItems: "center", backgroundColor: "var(--green)"}}>
+            </div><div style={{display: "flex", gap:"1rem", marginTop: "1rem", alignItems: "center"}}>
+            <ButtonLink text="test" fontSize="1.25rem"colour="grey" buttonStyle="fill" useIcon icon={icon} linkTo="/"/>
+            <ButtonLink text="test" fontSize="1.25rem"colour="grey" buttonStyle="fill" linkTo="/"/>
+
+            <ButtonLink text="test" fontSize="1.25rem"colour="grey" buttonStyle="stroke" useIcon icon={icon} linkTo="/"/>
+            <ButtonLink text="test" fontSize="1.25rem"colour="grey" buttonStyle="stroke" linkTo="/"/>
+
+            <ButtonLink text="test" fontSize="1.25rem"colour="grey" buttonStyle="hoverOnly" useIcon icon={icon} linkTo="/"/>
+            <ButtonLink text="test" fontSize="1.25rem"colour="grey" buttonStyle="hoverOnly" linkTo="/"/>
+            </div><div style={{display: "flex", gap:"1rem", marginTop: "1rem", alignItems: "center", backgroundColor: "var(--light-grey)"}}>
             <ButtonLink text="test" fontSize="1.25rem"colour="white" buttonStyle="fill" useIcon icon={icon} linkTo="/"/>
             <ButtonLink text="test" fontSize="1.25rem"colour="white" buttonStyle="fill" linkTo="/"/>
 

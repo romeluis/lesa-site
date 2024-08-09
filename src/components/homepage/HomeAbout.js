@@ -3,9 +3,10 @@ import './HomeAbout.css';
 import greenUnderline from '../../assets/green-underline.svg';
 import clubPhoto from '../../assets/about-lesa.svg';
 import executivePhoto from '../../assets/meet-the-team.svg';
-import greenArrow from '../../assets/green-link-icon.svg'
+import greenArrow from '../../assets/white-link-icon.svg'
 
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import ButtonLink from '../ButtonLink';
 
 const HomeAbout = () => {
     return ( 
@@ -34,13 +35,10 @@ const HomeAbout = () => {
                 <div className="meet-the-team-text">
                     <div>
                         <h2>Who runs LESA?</h2>
-                        <p>Find out who plans all our fun events and find contact information for all our current executive members.</p>
+                        <p id="meet-the-team-text">Find out who plans all our fun events and find contact information for all our current executive members.</p>
                     </div>
                     <div>
-                        <Link className="about-primary-link" to="/team">
-                            <p>Meet the team</p>
-                            <img src={greenArrow} alt=''/>
-                        </Link>
+                        <ButtonLink text="Meet the Team" fontSize="1.5rem" colour="green" buttonStyle="fill" useIcon icon={greenArrow} linkTo="/"/>
                     </div>
                 </div>
                 <div className="meet-the-team-image">
