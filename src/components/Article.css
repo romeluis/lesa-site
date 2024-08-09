@@ -1,0 +1,26 @@
+.article-container {
+    padding: 1em;
+    border-radius: 1em;
+    border-width: 0.1em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+
+}
+.article-title {
+    font-family: object_sans_bold;
+    margin-bottom: 0.2em;
+}
+.article-text {
+    font-size: 0.6em;
+    font-family: object_sans_regular;
+}
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4em;
+    height: 100%;
+}
