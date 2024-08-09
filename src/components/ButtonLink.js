@@ -5,7 +5,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 const ButtonLink = (props) => {
     const text = props.text;
     const colour = props.colour;
-    const style = props.buttonStyle;
+    const selectedStyle = props.buttonStyle;
     const useIcon = props.useIcon;
     const icon = props.icon;
     const linkTo = props.linkTo;
@@ -14,9 +14,9 @@ const ButtonLink = (props) => {
 
     return (  
         <Link to={linkTo} class="linker">
-            <div className={"button " + colour + " " + style}> 
-                <p className={bold === true ? "bold" : ""} style={{fontSize: selectedSize}}>{text}</p>
-                {useIcon === true && <img style={{width: selectedSize}} alt="" src={icon}/>}
+            <div className={"button " + colour + " " + selectedStyle} style={{fontSize: selectedSize}}> 
+                <p className={bold === true ? "bold" : ""}>{text}</p>
+                {useIcon === true && <img alt="" src={icon}/>}
             </div>
         </Link>
     );

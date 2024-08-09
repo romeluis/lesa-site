@@ -4,14 +4,14 @@ header {
     position: relative;
     display: grid;
     grid-template-columns: auto auto;
-    gap: var(--nav-item-margin);
+    gap: 1em;
 
-    padding: var(--nav-outer-padding) 0px;
+    padding: 2em 0px;
 }
 
 .nav-logo {
-    width: var(--nav-logo-width);
-    padding: var(--nav-item-padding);
+    width: 2.75em;
+    padding: 0px 1em;
 }
 
 .nav-links {
@@ -21,40 +21,7 @@ header {
     flex-wrap: nowrap;
     
     align-items: center;
-    gap: var(--nav-item-margin);
-}
-
-.nav-button {
-    font-family: var(--nav-element-font);
-    font-size: var(--nav-font-size);
-    color: var(--black);
-
-    padding: var(--nav-item-padding); 
-    border-radius: var(--nav-border-radius);
-
-    transition: var(--transition-time);
-}
-
-.nav-button:hover {
-    background-color: var(--white-hover);
-}
-
-.nav-call-to-action {
-    font-family: var(--nav-call-to-action-font);
-    font-size: var(--nav-call-to-action-font-size);
-    color: var(--white);
-    background-color: var(--black);
-
-    padding: var(--nav-item-padding); 
-    border-radius: calc(var(--nav-border-radius) + 2px);
-
-    justify-self: center;
-
-    transition: var(--transition-time);
-}
-
-.nav-call-to-action:hover {
-    background-color: var(--green);
+    gap: 1em;
 }
 
 @media screen and (max-width: 800px) {
