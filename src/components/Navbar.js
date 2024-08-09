@@ -7,6 +7,8 @@ import hamburgerIconClosed from "../assets/hamburger-icon-close.svg"
 //Tags
 import {Link} from "react-router-dom/cjs/react-router-dom.min";
 import {useState} from "react";
+import ButtonLink from "./ButtonLink";
+import ButtonRedirect from "./ButtonRedirect";
 
 const Navbar = () => {
     const [menuStatus, setMenuStatus] = useState(false);
@@ -27,11 +29,11 @@ const Navbar = () => {
             
             {!screenStatus && 
             <div className="nav-links">
-                <Link className="nav-button" to="/events">Events</Link>
-                <Link className="nav-button" to="/team">Team</Link>
-                <Link className="nav-button" to="/resources">Resources</Link>
-                <a className="nav-button" href="https://drive.google.com/drive/folders/1-H9Icoxu5RQgw5Q87b0MOSuOGn4_h5Oj?usp=sharing">Photo Albums</a>
-                <Link className="nav-call-to-action" to="/join">Join Us</Link>
+                <ButtonLink text="Events" fontSize="1.125rem" colour="white" buttonStyle="hoverOnly" linkTo="/events"/>
+                <ButtonLink text="Team" fontSize="1.125rem" colour="white" buttonStyle="hoverOnly" linkTo="/team"/>
+                <ButtonLink text="Resources" fontSize="1.125rem" colour="white" buttonStyle="hoverOnly" linkTo="/resources"/>
+                <ButtonRedirect text="Resources" fontSize="1.125rem" colour="white" buttonStyle="hoverOnly" linkTo="https://drive.google.com/drive/folders/1-H9Icoxu5RQgw5Q87b0MOSuOGn4_h5Oj?usp=sharing"/>
+                <ButtonLink text="Join Us" bold fontSize="1.3rem" colour="green" buttonStyle="fill" linkTo="/join"/>
             </div>}
 
             {screenStatus && 

@@ -23,6 +23,10 @@
     --blue-accent: #304793;
 
     --red: #D93846;
+
+    --yellow: #F5C946;
+    --yellow-accent: #E38D3D;
+
     
     /*Spacing*/
     --body-width: clamp(800px, 80%, 1375px);
@@ -169,6 +173,57 @@ h1,h2,h3,h4,h5,h6,p {
     font-family: object_sans_regular;
 }
 
+
+.fill {
+    border: 0px;
+    color: var(--white) !important;
+}
+
+.stroke {
+    border: solid;
+    background: none !important;
+}
+
+.pink {
+    background-color: var(--pink);
+    color: var(--pink);
+    border-color: var(--pink);
+}
+.green {
+    background-color: var(--green);
+    color: var(--green);
+    border-color: var(--green);
+}
+.blue {
+    background-color: var(--blue);
+    color: var(--blue);
+    border-color: var(--blue);
+}
+.white {
+    background-color: var(--white);
+    color: var(--black) !important;
+    border-color: var(--white);
+}
+.grey {
+    background-color: var(--light-grey);
+    color: var(--black) !important;
+    border-color: var(--light-grey);
+}
+.orange{
+    background-color: var(--yellow-accent);
+    color: var(--yellow-accent);
+    border-color: var(--yellow-accent);
+}
+.red {
+    background-color: var(--red);
+    color: var(--red);
+    border-color: var(--red);
+}
+.purple {
+    background-color: var(--pink-accent);
+    color: var(--pink-accent);
+    border-color: var(--pink-accent);
+}
 
 /*Fonts*/
 @font-face {

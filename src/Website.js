@@ -11,6 +11,7 @@ import Events from "./pages/Events";
 import Team from "./pages/Team";
 import Resources from "./pages/Resources";
 import Join from "./pages/Join";
+import Test from "./pages/Test";
 
 function Website() {
   return (
@@ -33,6 +34,9 @@ function Website() {
             </Route>
             <Route path="/join">
               <Join/>
+            </Route>
+            <Route path="/test">
+              <Test/>
             </Route>
           </Switch>
         </div>

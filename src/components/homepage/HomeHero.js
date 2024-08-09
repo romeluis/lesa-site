@@ -1,9 +1,9 @@
 //Resources
 import Lottie from 'react-lottie-player';
-import lottieJson from '../assets/hero-animation.json'
-import lottiePoster from '../assets/hero-animation-poster.png';
-import logoBadge from '../assets/hero-poster.svg';
-import blueLinkIcon from '../assets/blue-link-icon.svg'
+import lottieJson from '../../assets/hero-animation.json'
+import lottiePoster from '../../assets/hero-animation-poster.png';
+import logoBadge from '../../assets/hero-poster.svg';
+import blueLinkIcon from '../../assets/blue-link-icon.svg'
 import './HomeHero.css';
 
 import { useState } from 'react';

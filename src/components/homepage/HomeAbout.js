@@ -1,15 +1,15 @@
 //Resources
 import './HomeAbout.css';
-import greenUnderline from '../assets/green-underline.svg';
-import clubPhoto from '../assets/about-lesa.svg';
-import executivePhoto from '../assets/meet-the-team.svg';
-import greenArrow from '../assets/green-link-icon.svg'
+import greenUnderline from '../../assets/green-underline.svg';
+import clubPhoto from '../../assets/about-lesa.svg';
+import executivePhoto from '../../assets/meet-the-team.svg';
+import greenArrow from '../../assets/green-link-icon.svg'
 
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const HomeAbout = () => {
     return ( 
-        <div class="about">
+        <div className="about">
             <h1 className="section-heading">What is LESA?</h1>
             <img id="about-underline" src={greenUnderline} alt=''/>
             <div className="lesa-description">
@@ -43,7 +43,7 @@ const HomeAbout = () => {
                         </Link>
                     </div>
                 </div>
-                <div class="meet-the-team-image">
+                <div className="meet-the-team-image">
                     <img src={executivePhoto} alt="All LESA executives together."/>
                 </div>
             </div>

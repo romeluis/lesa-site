@@ -1,0 +1,16 @@
+.tagContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    width: 100%;
+}
+
+.tag {
+    display: block;
+    font-family: object_sans_regular;
+    font-size: 1.3rem;
+    border-radius: 20px;
+    border-width: 1px;
+    padding: 8px 17px 6px 17px;
+}

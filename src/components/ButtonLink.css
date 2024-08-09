@@ -1,0 +1,42 @@
+.linker {
+    width: fit-content;
+    display: block;
+}
+
+.button {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: fit-content;
+
+    padding: 10px 15px 7px 15px;
+
+    border-radius: 10px;
+    border-width: 2px !important;
+
+    transition: backgroud-color 2s;
+}
+
+.button p {
+    font-family: object_sans_regular;
+
+    display: block;
+    padding-top: 2px;
+}
+
+.bold {
+    font-family: object_sans_bold !important;
+}
+
+.button img {
+    display: block;
+}
+
+.hoverOnly {
+    border-style: none;
+    background: none;
+    background-color: none;
+}
+.hoverOnly:hover {
+    background-color: var(--light-grey);
+}

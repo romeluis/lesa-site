@@ -1,13 +1,13 @@
-import HomeAbout from "../components/HomeAbout";
-import HomeHero from "../components/HomeHero"
-import InfoSpread from "../components/InfoSpread";
+import HomeAbout from "../components/homepage/HomeAbout";
+import HomeHero from "../components/homepage/HomeHero"
 
 const Home = () => {
     return (
         <div>
             <HomeHero/>
+
+
             <HomeAbout/>
-            <InfoSpread/>
         </div>
     );
 }
