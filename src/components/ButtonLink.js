@@ -13,7 +13,7 @@ const ButtonLink = (props) => {
     const selectedSize = props.fontSize;
 
     return (  
-        <Link to={linkTo} class="linker">
+        <Link to={linkTo} className="linker">
             <div className={"button " + colour + " " + selectedStyle} style={{fontSize: selectedSize}}> 
                 <p className={bold === true ? "bold" : ""}>{text}</p>
                 {useIcon === true && <img alt="" src={icon}/>}

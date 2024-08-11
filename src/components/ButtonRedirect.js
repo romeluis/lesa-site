@@ -11,7 +11,7 @@ const ButtonRedirect = (props) => {
     const selectedSize = props.fontSize;
 
     return (  
-        <a href={linkTo} class="linker">
+        <a href={linkTo} className="linker">
             <div className={"button " + colour + " " + selectedStyle} style={{fontSize: selectedSize}}> 
                 <p className={bold === true ? "bold" : ""}>{text}</p>
                 {useIcon === true && <img alt="" src={icon}/>}

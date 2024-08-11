@@ -11,18 +11,20 @@ const Article = (props) => {
 
     return (  
         <div className={"article-container " + backgroundColour + "-container " + articleStyle + "-container"} style={{fontSize: selectedSize, justifyContent: justification}}>
-            {articleInfo.map((article) => (
-                <div className="text-items">
+            {articleInfo.map((article, index) => (
+                <div className="text-items" key={index}>
                     <h1 className={"article-title " + foregroundColour + "-text"} style={{fontSize: selectedSize}}>{article.header}</h1>
-                    {article.body.map((text) => (
-                        <p className="article-text">{text}</p>
+                    {article.body.map((text, index) => (
+                        <p className="article-text" key={index}>{text}</p>
                     ))}
             </div>
             ))}
             {buttons != null && buttons.length !== 0 && 
             <div className="buttons">
-                {buttons.map((button) => (
-                    button
+                {buttons.map((button, index) => (
+                    <div key={index}>
+                        {button}
+                    </div>
                 ))}
             </div>}
         </div>
