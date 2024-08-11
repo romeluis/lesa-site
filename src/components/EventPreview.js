@@ -2,7 +2,7 @@ import arrow from "../assets/white-link-icon.svg";
 import "./EventPreview.css";
 
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { monthShortForms } from "../utils/EventUtils";
+import { isDateSet, monthShortForms, monthFullForms } from "../utils/EventUtils";
 import TagList from "./TagList";
 
 class EventPreviewDisplay {
@@ -14,8 +14,13 @@ class EventPreviewDisplay {
     }
 
     create(eventInfo) {
-        this.dateString = eventInfo.day.toString() + " " + monthShortForms[eventInfo.month];
-        this.startTimeString = (eventInfo.startHour > 12 ? (eventInfo.startHour - 12).toString() : eventInfo.startHour.toString()) + ":" + (eventInfo.startMinute < 10 ? ("0" + eventInfo.startMinute.toString()) : eventInfo.startMinute.toString()) + (eventInfo.startHour > 12 ? "PM" : "AM");
+        if (isDateSet(eventInfo)) {
+            this.dateString = eventInfo.day.toString() + " " + monthShortForms[eventInfo.month];
+            this.startTimeString = ", " + (eventInfo.startHour > 12 ? (eventInfo.startHour - 12).toString() : eventInfo.startHour.toString()) + ":" + (eventInfo.startMinute < 10 ? ("0" + eventInfo.startMinute.toString()) : eventInfo.startMinute.toString()) + (eventInfo.startHour > 12 ? "PM" : "AM");
+        } else {
+            this.dateString = monthFullForms[eventInfo.month];
+            this.startTimeString = ", T ime TBD"
+        }
 
         let registration = "Registration not required";
         if (eventInfo.link !== "0") {
@@ -47,6 +52,8 @@ class EventPreviewDisplay {
 
 const EventPreview = (props) => {
     const selectedSize = props.fontSize;
+    const widthMax = props.maxWidth;
+    const widthMin = props.minWidth;
 
     const eventInfo = props.eventInfo;
     const processedEventInfo = new EventPreviewDisplay();
@@ -54,12 +61,12 @@ const EventPreview = (props) => {
 
     return (  
         <Link className="link-container" style={{fontSize: selectedSize}} to={"/events/" + eventInfo.id} key={eventInfo.id}>
-            <div className="preview-container">
+            <div className="preview-container" style={{maxWidth: widthMax, minWidth: widthMin}}>
                 <div className="preview-content">
                     <h2 className="date-title">{processedEventInfo.dateString}</h2>
                     <div>
                         <h1 className={"event-title " + processedEventInfo.colour + "-text"} style={{fontSize: selectedSize}}>{eventInfo.name}</h1>
-                        <p className="event-info">{eventInfo.location + ", " + processedEventInfo.startTimeString}</p>
+                        <p className="event-info">{eventInfo.location + processedEventInfo.startTimeString}</p>
                     </div>
                     <TagList tagList={processedEventInfo.tags} fontSize="0.35em"/>
                 </div>

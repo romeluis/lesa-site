@@ -95,10 +95,10 @@ const Test = () => {
 
             <h1 style={{marginBottom: "1rem", marginTop: "1rem"}}>Event Preview Component</h1>
             <div style={{display: "flex", gap: "1.5rem"}}>
-                <EventPreview eventInfo={events[0]} fontSize="2.5rem"/>
-                <EventPreview eventInfo={events[1]} fontSize="2.5rem"/>
-                <EventPreview eventInfo={events[2]} fontSize="2.5rem"/>
-                <EventPreview eventInfo={events[3]} fontSize="2.5rem"/>
+                <EventPreview eventInfo={events[0]} fontSize="2.15rem" minWidth="500px"/>
+                <EventPreview eventInfo={events[1]} fontSize="2.15rem"/>
+                <EventPreview eventInfo={events[2]} fontSize="2.15rem"/>
+                <EventPreview eventInfo={events[3]} fontSize="2.15rem" maxWidth="500px"/>
             </div>
         </div>
     );

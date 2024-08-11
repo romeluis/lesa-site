@@ -4,10 +4,13 @@
 }
 
 .preview-container {
-    display: flex;
+    display: grid;
     padding: 1em;
     border-radius: 1em;
     gap: 0.5em;
+
+    grid-template-columns: auto 1.1em;
+    grid-template-rows: auto;
 
     background-color: var(--light-grey);
     width: fit-content;
@@ -31,6 +34,7 @@
 }
 .event-title {
     font-family: object_sans_bold;
+    text-wrap: wrap;
     margin-bottom: 0.1em;
     
 }
