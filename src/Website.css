@@ -6,6 +6,8 @@
     --white-hover: #F7F7F7;
     --black: #000000;
     --light-grey: #F7F7F7;
+    --light-grey-shadow: #F7F7F790;
+    --light-grey-shadow-transparent: #F7F7F700;
     --dark-grey: #D3D3D3;
 
     --green: #91BE4A;
@@ -17,14 +19,22 @@
     --pink-shadow: #eb659890;
     --pink-shadow-transparent: #eb659800;
     --pink-accent: #673D79;
+    --pink-accent-shadow: #673D7990;
+    --pink-accent-shadow-transparent: #673D7900;
 
     --blue: #80C0DA;
     --blue-accent: #304793;
+    --blue-shadow: #80C0DA90;
+    --blue-shadow-transparent: #80C0DA00;
 
     --red: #D93846;
+    --red-shadow: #D9384690;
+    --red-shadow-transparent: #D9384600;
 
     --yellow: #F5C946;
     --yellow-accent: #E38D3D;
+    --yellow-accent-shadow: #E38D3D90;
+    --yellow-accent-shadow-transparent: #E38D3D00;
 
     
     /*Spacing*/
@@ -120,6 +130,98 @@ h1,h2,h3,h4,h5,h6,p {
     background: none !important;
 }
 
+.pink-pulse {
+    animation: pinkPulse 2s infinite;
+}
+@keyframes pinkPulse {
+    0%{
+        box-shadow: 0px 0px 0px 0px var(--pink-shadow);
+    }
+    70%{
+        box-shadow: 0px 0px 0px 10px var(--pink-shadow-transparent);
+    }
+    100%{
+    }
+}
+.green-pulse {
+    animation: greenPulse 2s infinite;
+}
+@keyframes greenPulse {
+    0%{
+        box-shadow: 0px 0px 0px 0px var(--green-shadow);
+    }
+    70%{
+        box-shadow: 0px 0px 0px 10px var(--green-shadow-transparent);
+    }
+    100%{
+    }
+}
+.blue-pulse {
+    animation: bluePulse 2s infinite;
+}
+@keyframes bluePulse {
+    0%{
+        box-shadow: 0px 0px 0px 0px var(--blue-shadow);
+    }
+    70%{
+        box-shadow: 0px 0px 0px 10px var(--blue-shadow-transparent);
+    }
+    100%{
+    }
+}
+.grey-pulse {
+    animation: greyPulse 2s infinite;
+}
+@keyframes greyPulse {
+    0%{
+        box-shadow: 0px 0px 0px 0px var(--light-grey-shadow);
+    }
+    70%{
+        box-shadow: 0px 0px 0px 10px var(--light-grey-shadow-transparent);
+    }
+    100%{
+    }
+}
+.orange-pulse {
+    animation: orangePulse 2s infinite;
+}
+@keyframes orangePulse {
+    0%{
+        box-shadow: 0px 0px 0px 0px var(--yellow-accent-shadow);
+    }
+    70%{
+        box-shadow: 0px 0px 0px 10px var(--yellow-accent-shadow-transparent);
+    }
+    100%{
+    }
+}
+.red-pulse {
+    animation: redPulse 2s infinite;
+}
+@keyframes redPulse {
+    0%{
+        box-shadow: 0px 0px 0px 0px var(--red-shadow);
+    }
+    70%{
+        box-shadow: 0px 0px 0px 10px var(--red-shadow-transparent);
+    }
+    100%{
+    }
+}
+.purple-pulse {
+    animation: purplePulse 2s infinite;
+}
+@keyframes purplePulse {
+    0%{
+        box-shadow: 0px 0px 0px 0px var(--pink-accent-shadow);
+    }
+    70%{
+        box-shadow: 0px 0px 0px 10px var(--pink-accent-shadow-transparent);
+    }
+    100%{
+    }
+}
+
 
 .pink {
     background-color: var(--pink);
@@ -150,6 +252,11 @@ h1,h2,h3,h4,h5,h6,p {
     background-color: var(--dark-grey);
     color: var(--black) !important;
     border-color: var(--dark-grey);
+}
+.black {
+    background-color: var(--black);
+    color: var(--black) !important;
+    border-color: var(--black);
 }
 .orange{
     background-color: var(--yellow-accent);

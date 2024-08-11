@@ -1,0 +1,39 @@
+.link-container {
+    display: block;
+    width: fit-content;
+}
+
+.preview-container {
+    display: flex;
+    padding: 1em;
+    border-radius: 1em;
+    gap: 0.5em;
+
+    background-color: var(--light-grey);
+    width: fit-content;
+}
+
+.preview-decoration {
+    display: block;
+    width: 1.1em;
+}
+
+.preview-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+}
+.date-title {
+    font-family: object_sans_regular;
+    font-size: 0.8em;
+    margin-top: 0.2em;
+}
+.event-title {
+    font-family: object_sans_bold;
+    margin-bottom: 0.1em;
+    
+}
+.event-info {
+    font-size: 0.5em !important;
+}

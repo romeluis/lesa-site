@@ -9,22 +9,22 @@ import EventPreview from "../components/EventPreview";
 import events from "../assets/events.json";
 
 const Test = () => {
-    var tagList = [{text:"test", style:"fill", colour: "pink"},
-                    {text:"test", style:"stroke", colour: "pink"},
-                    {text:"test", style:"fill", colour: "green"},
-                    {text:"test", style:"stroke", colour: "green"},
-                    {text:"test", style:"fill", colour: "blue"},
-                    {text:"test", style:"stroke", colour: "blue"},
-                    {text:"test", style:"fill", colour: "white"},
-                    {text:"test", style:"stroke", colour: "white"},
-                    {text:"test", style:"fill", colour: "grey"},
-                    {text:"test", style:"stroke", colour: "grey"},
-                    {text:"test", style:"fill", colour: "red"},
-                    {text:"test", style:"stroke", colour: "red"},
-                    {text:"test", style:"fill", colour: "orange"},
-                    {text:"test", style:"stroke", colour: "orange"},
-                    {text:"test", style:"fill", colour: "purple"},
-                    {text:"test", style:"stroke", colour: "purple"}];
+    var tagList = [{text:"test", style:"fill", colour: "pink", pulse: true},
+                    {text:"test", style:"stroke", colour: "pink", pulse: true},
+                    {text:"test", style:"fill", colour: "green", pulse: true},
+                    {text:"test", style:"stroke", colour: "green", pulse: true},
+                    {text:"test", style:"fill", colour: "blue", pulse: true},
+                    {text:"test", style:"stroke", colour: "blue", pulse: true},
+                    {text:"test", style:"fill", colour: "white", pulse: true},
+                    {text:"test", style:"stroke", colour: "white", pulse: true},
+                    {text:"test", style:"fill", colour: "grey", pulse: true},
+                    {text:"test", style:"stroke", colour: "grey", pulse: true},
+                    {text:"test", style:"fill", colour: "red", pulse: true},
+                    {text:"test", style:"stroke", colour: "red", pulse: true},
+                    {text:"test", style:"fill", colour: "orange", pulse: true},
+                    {text:"test", style:"stroke", colour: "orange", pulse: true},
+                    {text:"test", style:"fill", colour: "purple", pulse: true},
+                    {text:"test", style:"stroke", colour: "purple", pulse: true}];
 
     var buttonList = [
         <ButtonLink text="test" fontSize="1.25rem"colour="blue" buttonStyle="fill" useIcon icon={icon} linkTo="/"/>,
@@ -93,8 +93,13 @@ const Test = () => {
                 <Article articleInfo={article} foregroundColour="green" backgroundColour="green" fontSize="2rem" articleStyle="stroke"/>
             </div>
 
-            <h1 style={{marginBottom: "1rem"}}>Event Preview Component</h1>
-            <EventPreview eventInfo={events[0]} fontSize="2rem"/>
+            <h1 style={{marginBottom: "1rem", marginTop: "1rem"}}>Event Preview Component</h1>
+            <div style={{display: "flex", gap: "1.5rem"}}>
+                <EventPreview eventInfo={events[0]} fontSize="2.5rem"/>
+                <EventPreview eventInfo={events[1]} fontSize="2.5rem"/>
+                <EventPreview eventInfo={events[2]} fontSize="2.5rem"/>
+                <EventPreview eventInfo={events[3]} fontSize="2.5rem"/>
+            </div>
         </div>
     );
 }
