@@ -4,6 +4,9 @@ import icon from "../assets/grey-link-icon.svg"
 import iconGreen from "../assets/green-link-icon.svg"
 import iconBlue from "../assets/blue-link-icon.svg"
 import Article from "../components/Article";
+import EventPreview from "../components/EventPreview";
+
+import events from "../assets/events.json";
 
 const Test = () => {
     var tagList = [{text:"test", style:"fill", colour: "pink"},
@@ -89,6 +92,9 @@ const Test = () => {
                 <Article articleInfo={articeltwo} articleStyle="fill" foregroundColour="red" backgroundColour="grey" fontSize="2.5rem" buttons={buttonList}/>
                 <Article articleInfo={article} foregroundColour="green" backgroundColour="green" fontSize="2rem" articleStyle="stroke"/>
             </div>
+
+            <h1 style={{marginBottom: "1rem"}}>Event Preview Component</h1>
+            <EventPreview eventInfo={events[0]} fontSize="2rem"/>
         </div>
     );
 }

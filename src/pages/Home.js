@@ -7,7 +7,6 @@ import executivePhoto from '../assets/meet-the-team.svg';
 import greenArrow from '../assets/white-link-icon.svg'
 
 import Lottie from 'react-lottie-player';
-import lottieJson from '../assets/hero-animation.json'
 import lottiePoster from '../assets/hero-animation-poster.png';
 import logoBadge from '../assets/hero-poster.svg';
 import blueLinkIcon from '../assets/blue-link-icon.svg'
@@ -16,10 +15,10 @@ import icon from "../assets/white-link-icon.svg"
 import "./Home.css"
 import ButtonLink from "../components/ButtonLink";
 import redUnderline from "../assets/red-underline.svg"
-import { useState } from "react";
+import useFetchJSON from "../utils/FetchJSON";
 
 const Home = () => {
-    const [animationStatus, setAnimationStatus] = useState(false);
+    const {data: animationData, isPending, error} = useFetchJSON("http://localhost:3000/heroAnimation.json");
 
     const connectThroughCulture = [{header:"Connect through culture", body:["LESA hosts various events throughout the year. These events provide opportunities to make new friends and explore our shared heritage. Whether you're a new student or nearing graduation, LESA is here to enrich your university experience with Latin American traditions."]}];
     const homeAwayFromHome = [{header:"Home away from home", body:["Moving to Canada can be challenging, but with LESA, you'll never feel alone. Our community is a home away from home, providing support and companionship. Join our events to take a break from academic life and reconnect with your roots and cultural identity."]}];
@@ -43,8 +42,8 @@ const Home = () => {
                 </div>
                 <div id="hero-animation">
                     <div>
-                        <Lottie id="lottie-player" animationData={lottieJson} background="transparent" speed="1" loop play onLoad={() => setAnimationStatus(true)}/>
-                        {!animationStatus && <img id="hero-poster" src={lottiePoster} alt="Animation of various LESA events"/>}
+                        {!isPending && <Lottie id="lottie-player" animationData={animationData} background="transparent" speed="1" loop play/>}
+                        {(error != null || isPending) && <img id="hero-poster" src={lottiePoster} alt="Animation of various LESA events"/>}
                     </div>
                 </div>
             </div>

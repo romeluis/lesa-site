@@ -232,7 +232,7 @@ h1,h2,h3,h4,h5,h6,p {
 /*Fonts*/
 @font-face {
 	font-family: object_sans_regular;
-	src: url("../public/fonts/ObjectSans-Regular.otf");
+	src: url("assets/fonts/ObjectSans-Regular.otf");
 
     font-weight: normal;
     font-style: normal;
@@ -240,7 +240,7 @@ h1,h2,h3,h4,h5,h6,p {
 
 @font-face {
 	font-family: object_sans_bold;
-	src: url("../public/fonts/ObjectSans-Bold.otf");
+	src: url("assets/fonts/ObjectSans-Bold.otf");
 
     font-weight: normal;
     font-style: normal;
@@ -248,7 +248,7 @@ h1,h2,h3,h4,h5,h6,p {
 
 @font-face {
 	font-family: object_sans_thin;
-	src: url("../public/fonts/ObjectSans-Thin.otf");
+	src: url("assets/fonts/ObjectSans-Thin.otf");
 
     font-weight: normal;
     font-style: normal;
