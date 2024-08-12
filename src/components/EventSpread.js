@@ -35,13 +35,14 @@ class EventSpreadController {
                     this.eventsMonthlyHistogram[2 * (event.month - 1) + 1] += 1;
                 }
             }
+            return 0;
         })
 
         for (let index = 0; index < numMonths; index++) {
             let thisMonth = this.getNextMonth(index);
 
             let numberString = "No Events";
-            if (this.eventsMonthlyHistogram[thisMonth] == 1) {
+            if (this.eventsMonthlyHistogram[thisMonth] === 1) {
                 numberString = "1 Event";
             } else if (this.eventsMonthlyHistogram[thisMonth] > 1) {
                 numberString = this.eventsMonthlyHistogram[thisMonth].toString() + " Events";
@@ -65,30 +66,30 @@ class EventSpreadController {
 }
 
 const EventSpread = (props) => {
-    const {data: eventList, isPending, error} = useFetchJSON("http://localhost:3000/events.json");
+    const {data: eventList, isPending, error} = useFetchJSON("https://lesauoft.com/events.json");
 
     const numberOfPreviews = props.maxPreviews;
     const numberOfMonths = props.maxMonths;
 
     const controller = new EventSpreadController();
-    if (!isPending) {
+    if (!isPending && error === null) {
         controller.create(eventList, numberOfPreviews, numberOfMonths);
     }
 
     return (  
         <div className="event-spread"> 
-            {!isPending &&
+            {!isPending && error === null &&
                 controller.upcomingEvents.map((event) => (
-                    <EventPreview eventInfo={event} fontSize="2.15rem" minWidth="425px"/>
+                    <EventPreview eventInfo={event} fontSize="2.15rem" minWidth="425px" key={event.id}/>
                 ))}
-            {!isPending &&
-                controller.upcomingMonths.map((month) => (
-                    <div className="month-preview">
+            {!isPending && error === null &&
+                controller.upcomingMonths.map((month, index) => (
+                    <div className="month-preview" key={index}>
                         <div className="month-preview-text">
                             <h1>{month.title}</h1>
                             <p>{month.number}</p>
                         </div>
-                        <img className="month-preview-decoration" src={arrow}/>
+                        <img className="month-preview-decoration" src={arrow} alt=""/>
                     </div>
                 ))}
         </div>

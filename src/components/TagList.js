@@ -7,8 +7,8 @@ const TagList = (props) => {
 
     return (  
         <div className="tagContainer">
-            {tagList.map((tag) => (
-                <Tag text={tag.text} tagStyle={tag.style} colour={tag.colour} fontSize={selectedSize} style={{fontSize: selectedSize}} pulse={tag.pulse}/>
+            {tagList.map((tag, index) => (
+                <Tag key={index} text={tag.text} tagStyle={tag.style} colour={tag.colour} fontSize={selectedSize} style={{fontSize: selectedSize}} pulse={tag.pulse}/>
             ))}
         </div>
     );

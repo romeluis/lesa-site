@@ -5,6 +5,7 @@
 
     grid-template-columns: auto 25% 10% 35%;
     grid-template-rows: auto 10% auto;
+    margin-bottom: 1.5rem;
 }
 
 .hero h1 {
@@ -212,10 +213,82 @@
     width: 100%;
     margin-bottom: var(--about-sub-section-spacing);
 }
+
+#events-underline{
+    display: block;
+    position: absolute;
+    width: 350px;
+    transform: translate(150px, -80px);
+    z-index: 1;
+}
+
+.section-heading {
+    display: block;
+    position: relative;
+    z-index: 2;
+    font-family: object_sans_bold;
+    font-size: 65px;
+    color: var(--black);
+    padding:  0px 0px 50px 0px;
+
+    text-wrap: nowrap;
+}
+#connect-underline{
+    display: block;
+    position: absolute;
+    width: 285px;
+    transform: translate(0px, -75px);
+    z-index: 1;
+}
+
+.connect-spread {
+    display: flex;
+
+    overflow-x: scroll;
+    gap: 1em;
+    padding-bottom: 1em;
+
+    max-width: 100%;
+
+    border-radius: 2em;
+}
+.connect-spread .article-container {
+    min-width: 350px;
+}
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+.connect-spread {
+    scrollbar-width: auto;
+    scrollbar-color: var(--red);
+}
+
+/* Chrome, Edge, and Safari */
+.connect-spread::-webkit-scrollbar {
+    width: 16px;
+}
+
+.connect-spread::-webkit-scrollbar-track {
+    background: var(--light-grey);
+    border-radius: 10px;
+}
+
+.connect-spread::-webkit-scrollbar-thumb {
+    background-color: var(--red);
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
+
 @media screen and (max-width: 800px) {
     #about-underline{
         display: none;
     }
+    #connect-underline{
+        display: none;
+    }
+    #events-underline {
+        display: none;
+    }
+
     .section-heading {
         display: block;
         position: relative;
@@ -287,60 +360,4 @@
         width: 75vw;
         justify-self: center;
     }
-}
-
-.section-heading {
-    display: block;
-    position: relative;
-    z-index: 2;
-    font-family: object_sans_bold;
-    font-size: 65px;
-    color: var(--black);
-    padding:  0px 0px 50px 0px;
-
-    text-wrap: nowrap;
-}
-#connect-underline{
-    display: block;
-    position: absolute;
-    width: 285px;
-    transform: translate(0px, -75px);
-    z-index: 1;
-}
-
-.connect-spread {
-    display: flex;
-
-    overflow-x: scroll;
-    gap: 1em;
-    padding-bottom: 1em;
-
-    max-width: 100%;
-
-    border-radius: 2em;
-}
-.connect-spread .article-container {
-    min-width: 350px;
-}
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
-.connect-spread {
-    scrollbar-width: auto;
-    scrollbar-color: var(--red);
-}
-
-/* Chrome, Edge, and Safari */
-.connect-spread::-webkit-scrollbar {
-    width: 16px;
-}
-
-.connect-spread::-webkit-scrollbar-track {
-    background: var(--light-grey);
-    border-radius: 10px;
-}
-
-.connect-spread::-webkit-scrollbar-thumb {
-    background-color: var(--red);
-    border-radius: 10px;
-    border: 3px solid #ffffff;
 }

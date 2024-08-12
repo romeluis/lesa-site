@@ -5,6 +5,7 @@ import greenUnderline from '../assets/green-underline.svg';
 import clubPhoto from '../assets/about-lesa.svg';
 import executivePhoto from '../assets/meet-the-team.svg';
 import greenArrow from '../assets/white-link-icon.svg'
+import pinkUnderline from "../assets/pink-underline.svg"
 
 import Lottie from 'react-lottie-player';
 import lottiePoster from '../assets/hero-animation-poster.png';
@@ -16,9 +17,10 @@ import "./Home.css"
 import ButtonLink from "../components/ButtonLink";
 import redUnderline from "../assets/red-underline.svg"
 import useFetchJSON from "../utils/FetchJSON";
+import EventSpread from "../components/EventSpread";
 
 const Home = () => {
-    const {data: animationData, isPending, error} = useFetchJSON("http://localhost:3000/heroAnimation.json");
+    const {data: animationData, isPending, error} = useFetchJSON("https://lesauoft.com/heroAnimation.json");
 
     const connectThroughCulture = [{header:"Connect through culture", body:["LESA hosts various events throughout the year. These events provide opportunities to make new friends and explore our shared heritage. Whether you're a new student or nearing graduation, LESA is here to enrich your university experience with Latin American traditions."]}];
     const homeAwayFromHome = [{header:"Home away from home", body:["Moving to Canada can be challenging, but with LESA, you'll never feel alone. Our community is a home away from home, providing support and companionship. Join our events to take a break from academic life and reconnect with your roots and cultural identity."]}];
@@ -47,6 +49,11 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            <h1 className="section-heading"> Find your place on campus.</h1>
+            <img id="events-underline" src={pinkUnderline}></img>
+            <EventSpread maxPreviews={2} maxMonths={6}/>
+
 
             <div className="about">
                 <h1 className="section-heading">What is LESA?</h1>
