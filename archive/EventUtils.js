@@ -1,6 +1,6 @@
 //Helper structures
 const monthShortForms = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'June', 'July', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.'];
-const monthSectionShortForms = ['Early<br>Jan.', 'Late<br>Jan.', 'Early<br>Feb.', 'Late<br>Feb.', 'Early<br>Mar.', 'Late<br>Mar.', 'Early<br>Apr.', 'Late<br>Apr.', 'Early<br>May', 'Late<br>May', 'Early<br>June', 'Late<br>June', 'Early<br>July', 'Late<br>July', 'Early<br>Aug.', 'Late<br>Aug.', 'Early<br>Sept.', 'Late<br>Sept.', 'Early<br>Oct.', 'Late<br>Oct.', 'Early<br>Nov.', 'Late<br>Nov.', 'Early<br>Dec.', 'Late<br>Dec.'];
+const monthSectionShortForms = ['Early\nJan.', 'Late\nJan.', 'Early\nFeb.', 'Late\nFeb.', 'Early\nMar.', 'Late\nMar.', 'Early\nApr.', 'Late\nApr.', 'Early\nMay', 'Late\nMay', 'Early\nJune', 'Late\nJune', 'Early\nJuly', 'Late\nJuly', 'Early\nAug.', 'Late\nAug.', 'Early\nSept.', 'Late\nSept.', 'Early\nOct.', 'Late\nOct.', 'Early\nNov.', 'Late\nNov.', 'Early\nDec.', 'Late\nDec.'];
 
 //Boolean queries; returns True/False based on event info
 export function isUpcoming(eventInfo, currentDay, currentMonth, currentYear) { //true if event has not occured year (does not check time)

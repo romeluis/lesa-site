@@ -7,6 +7,7 @@ import Article from "../components/Article";
 import EventPreview from "../components/EventPreview";
 
 import events from "../assets/events.json";
+import EventSpread from "../components/EventSpread";
 
 const Test = () => {
     var tagList = [{text:"test", style:"fill", colour: "pink", pulse: true},
@@ -100,6 +101,8 @@ const Test = () => {
                 <EventPreview eventInfo={events[2]} fontSize="2.15rem"/>
                 <EventPreview eventInfo={events[3]} fontSize="2.15rem" maxWidth="500px"/>
             </div>
+
+            <EventSpread maxPreviews={4} maxMonths={24}/>
         </div>
     );
 }

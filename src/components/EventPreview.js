@@ -15,11 +15,11 @@ class EventPreviewDisplay {
 
     create(eventInfo) {
         if (isDateSet(eventInfo)) {
-            this.dateString = eventInfo.day.toString() + " " + monthShortForms[eventInfo.month];
+            this.dateString = eventInfo.day.toString() + " " + monthShortForms[eventInfo.month - 1];
             this.startTimeString = ", " + (eventInfo.startHour > 12 ? (eventInfo.startHour - 12).toString() : eventInfo.startHour.toString()) + ":" + (eventInfo.startMinute < 10 ? ("0" + eventInfo.startMinute.toString()) : eventInfo.startMinute.toString()) + (eventInfo.startHour > 12 ? "PM" : "AM");
         } else {
-            this.dateString = monthFullForms[eventInfo.month];
-            this.startTimeString = ", T ime TBD"
+            this.dateString = monthFullForms[eventInfo.month - 1];
+            this.startTimeString = ", Time TBD"
         }
 
         let registration = "Registration not required";
@@ -66,13 +66,13 @@ const EventPreview = (props) => {
                     <h2 className="date-title">{processedEventInfo.dateString}</h2>
                     <div>
                         <h1 className={"event-title " + processedEventInfo.colour + "-text"} style={{fontSize: selectedSize}}>{eventInfo.name}</h1>
-                        <p className="event-info">{eventInfo.location + processedEventInfo.startTimeString}</p>
+                        <p className="event-info">{(eventInfo.location == "TBD" ? "Location TBD": eventInfo.location) + processedEventInfo.startTimeString}</p>
                     </div>
                     <TagList tagList={processedEventInfo.tags} fontSize="0.35em"/>
                 </div>
                 <div className="preview-decoration">
-                        <img src={arrow} alt=""/>
-                    </div>
+                    <img src={arrow} alt=""/>
+                </div>
             </div>
         </Link>
     );
