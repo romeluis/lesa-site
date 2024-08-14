@@ -80,7 +80,7 @@ const EventSpread = (props) => {
         <div className="event-spread"> 
             {!isPending && error === null &&
                 controller.upcomingEvents.map((event) => (
-                    <EventPreview eventInfo={event} fontSize="2.15rem" minWidth="425px" key={event.id}/>
+                    <EventPreview eventInfo={event} fontSize="2.15rem" minWidth="500px" key={event.id}/>
                 ))}
             {!isPending && error === null &&
                 controller.upcomingMonths.map((month, index) => (

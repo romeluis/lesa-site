@@ -8,6 +8,7 @@ import EventPreview from "../components/EventPreview";
 
 import events from "../assets/events.json";
 import EventSpread from "../components/EventSpread";
+import ButtonDropDown from "../components/ButtonDropDown";
 
 const Test = () => {
     var tagList = [{text:"test", style:"fill", colour: "pink", pulse: true},
@@ -86,6 +87,12 @@ const Test = () => {
 
             <ButtonLink text="test" fontSize="1.25rem"colour="white" buttonStyle="hoverOnly" useIcon icon={icon} linkTo="/"/>
             <ButtonLink text="test" fontSize="1.25rem"colour="white" buttonStyle="hoverOnly" linkTo="/"/>
+            </div>
+
+            <h1 style={{marginBottom: "1rem", marginTop: "1rem"}}>Drop Down Component</h1>
+            <div style={{display: "flex", gap:"1rem", marginTop: "1rem", alignItems: "center"}}>
+                <ButtonDropDown selectionText="Date" size="1.125rem" options={["Ascending", "Descending"]} colour="grey" buttonStyle="hoverOnly"/>
+                <ButtonDropDown selectionText="Filter" size="1.125rem" options={["None", "Price Low", "Price High", "LESA Event", "Community Event", "FROSH Event", "UofT Event"]} colour="grey" buttonStyle="hoverOnly"/>
             </div>
 
             <h1 style={{marginTop: "1rem"}}>Article Component</h1>

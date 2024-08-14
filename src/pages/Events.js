@@ -1,6 +1,9 @@
+import "./Events.css";
+
 const Events = () => {
     return ( 
-        <h1>Eventspage</h1>
+        <h1 className="page-title">Upcoming Events</h1>
+
     );
 }
  
