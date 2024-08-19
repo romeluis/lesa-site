@@ -11,21 +11,23 @@ const ButtonDropDown = (props) => {
     const selectedStyle = props.buttonStyle;
     const selectedSize = props.size;
 
+    const selectedOption = props.selectedOption;
+    const setSelectedOption = props.changeOption;
+
     const [dropDownState, setDropDownState] = useState(false);
-    const [currentOption, setCurrentOption] = useState(options[0]);
     const [currentOptionIndex, setCurrentOptionIndex] = useState(0);
 
     return (
         <div style={{position: "relative", display: "block"}}>
             <div className={"button-drop-down " + colour + " " + selectedStyle + " " + ((dropDownState) ? "button-selected" : "")} style={{fontSize: selectedSize}} onClick={() => setDropDownState(!dropDownState)}>
-                <p className="button-text"><span className="bold">{selectionText + ": "}</span>{currentOption}</p>
+                <p className="button-text"><span className="bold">{selectionText + ": "}</span>{selectedOption}</p>
                 <img className="drop-down-img" alt="" src={dropDownState ? dropDownArrowOpened : dropDownArrow}/>
             </div>
             {dropDownState &&
                 <div className="drop-down-options" style={{fontSize: selectedSize}} onMouseLeave={() => setDropDownState(false)}>
                     {options.map((option, index) => (
                         <div className={"drop-down-option " + ((currentOptionIndex === index) ? "selected-option" : "")} style={{fontSize: selectedSize}} onClick={() => {
-                            setCurrentOption(options[index]);
+                            setSelectedOption(options[index]);
                             setCurrentOptionIndex(index);
                             setDropDownState(false);
                         }}>

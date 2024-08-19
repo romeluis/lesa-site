@@ -6,9 +6,9 @@ import iconBlue from "../assets/blue-link-icon.svg"
 import Article from "../components/Article";
 import EventPreview from "../components/EventPreview";
 
-import events from "../assets/events.json";
 import EventSpread from "../components/EventSpread";
 import ButtonDropDown from "../components/ButtonDropDown";
+import { useState } from "react";
 
 const Test = () => {
     var tagList = [{text:"test", style:"fill", colour: "pink", pulse: true},
@@ -32,6 +32,70 @@ const Test = () => {
         <ButtonLink text="test" fontSize="1.25rem"colour="blue" buttonStyle="fill" useIcon icon={icon} linkTo="/"/>,
         <ButtonLink text="test" fontSize="1.25rem"colour="green" buttonStyle="stroke" bold useIcon icon={iconGreen} linkTo="/"/>
     ];
+
+    const events = [{
+        "id":1,
+        "name":"Frosh Matriculation",
+        "day":31,
+        "month":8,
+        "year":2024,
+        "startHour":8,
+        "startMinute":0,
+        "endHour":9,
+        "endMinute":0,
+        "location":"Convocation Hall",
+        "type": "FROSH Event",
+        "price": 0,
+        "link":"0"
+    },
+    {
+        "id":2,
+        "name":"EngSoc Club Fair",
+        "day":1,
+        "month":9,
+        "year":2024,
+        "startHour":8,
+        "startMinute":0,
+        "endHour":15,
+        "endMinute":0,
+        "location":"Bahen",
+        "type": "FROSH Event",
+        "price": 0,
+        "link":"0"
+    },
+    {
+        "id":3,
+        "name":"International Student Welcome",
+        "day":0,
+        "month":9,
+        "year":2024,
+        "startHour":0,
+        "startMinute":0,
+        "endHour":0,
+        "endMinute":0,
+        "location":"TBD",
+        "type": "LESA Event",
+        "price": 0,
+        "link":"0"
+    },
+    {
+        "id":4,
+        "name":"2024 General Member Welcome",
+        "day":0,
+        "month":9,
+        "year":2024,
+        "startHour":0,
+        "startMinute":0,
+        "endHour":0,
+        "endMinute":0,
+        "location":"TBD",
+        "type": "LESA Event",
+        "price": 0,
+        "link":"0"
+    }];
+
+    const [sortState, setSortState] = useState("Date Ascending");
+    const [filterState, setFilterState] = useState("None");
 
     var article = [{header:"test", body:["test"]}];
     var articeltwo = [{header:"Lorem Ipsum", body:["es simplemente el texto de relleno de las imprentas y archivos de texto.", "Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500."]}]
@@ -91,8 +155,8 @@ const Test = () => {
 
             <h1 style={{marginBottom: "1rem", marginTop: "1rem"}}>Drop Down Component</h1>
             <div style={{display: "flex", gap:"1rem", marginTop: "1rem", alignItems: "center"}}>
-                <ButtonDropDown selectionText="Date" size="1.125rem" options={["Ascending", "Descending"]} colour="grey" buttonStyle="hoverOnly"/>
-                <ButtonDropDown selectionText="Filter" size="1.125rem" options={["None", "Price Low", "Price High", "LESA Event", "Community Event", "FROSH Event", "UofT Event"]} colour="grey" buttonStyle="hoverOnly"/>
+                <ButtonDropDown selectedOption={sortState} changeOption={setSortState} selectionText="Date" size="1.125rem" options={["Ascending", "Descending"]} colour="grey" buttonStyle="hoverOnly"/>
+                <ButtonDropDown selectedOption={filterState} changeOption={setFilterState} selectionText="Filter" size="1.125rem" options={["None", "Price Low", "Price High", "LESA Event", "Community Event", "FROSH Event", "UofT Event"]} colour="grey" buttonStyle="hoverOnly"/>
             </div>
 
             <h1 style={{marginTop: "1rem"}}>Article Component</h1>

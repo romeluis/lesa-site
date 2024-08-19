@@ -1,9 +1,12 @@
+import EventBrowser from "../components/EventBrowser";
 import "./Events.css";
 
 const Events = () => {
     return ( 
-        <h1 className="page-title">Upcoming Events</h1>
-
+        <div>
+            <h1 className="page-title">Upcoming Events</h1>
+            <EventBrowser/>
+        </div>
     );
 }
  

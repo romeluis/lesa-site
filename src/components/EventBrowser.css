@@ -1,0 +1,29 @@
+.empty-events-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 500px;
+
+}
+
+.empty-events-message {
+    font-size: 1.3rem;
+    font-family: object_sans_regular;
+    color: var(--darkest-grey);
+}
+
+.event-viewer {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 1250px){
+    .event-viewer {
+        grid-template-columns: auto;
+    }
+}

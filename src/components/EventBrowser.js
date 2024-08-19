@@ -1,5 +1,12 @@
-[
-    {
+import { useRef, useState } from "react";
+import ButtonDropDown from "./ButtonDropDown";
+import EventPreview from "./EventPreview";
+import "./EventBrowser.css";
+
+const EventBrowser = (props) => {
+    const [sortState, setSortState] = useState("Date Ascending");
+    const [filterState, setFilterState] = useState("None");
+    const requestedEvents = [{
         "id":1,
         "name":"Frosh Matriculation",
         "day":31,
@@ -12,7 +19,7 @@
         "location":"Convocation Hall",
         "type": "FROSH Event",
         "price": 0,
-        "link":"https://"
+        "link":"0"
     },
     {
         "id":2,
@@ -88,5 +95,28 @@
         "type": "LESA Event",
         "price": 0,
         "link":"1"
-    }
-]
+    }];
+
+    return (  
+        <div>
+            <div style={{display: "flex", gap:"1rem", marginTop: "1rem", alignItems: "center"}}>
+                <ButtonDropDown selectedOption={sortState} changeOption={setSortState} selectionText="Sort" size="1.125rem" options={["Date Ascending", "Date Descending", "Price Ascending", "Price Descending"]} colour="grey" buttonStyle="hoverOnly"/>
+                <ButtonDropDown selectedOption={filterState} changeOption={setFilterState} selectionText="Filter" size="1.125rem" options={["None", "LESA Event", "FROSH Event", "UofT Event", "Community Event"]} colour="grey" buttonStyle="hoverOnly"/>
+            </div>
+
+            {(requestedEvents.length > 0) && 
+            <div className="event-viewer">
+                {requestedEvents.map((event) => (
+                    <EventPreview eventInfo={event} fontSize="2.15rem" minWidth="500px" key={event.id}/>
+                ))}
+            </div>}
+            {(requestedEvents.length <= 0) &&
+                <div className="empty-events-container">
+                    <h2 className="empty-events-message">No Events Found</h2>
+                </div>
+            }
+        </div>
+    );
+}
+ 
+export default EventBrowser;

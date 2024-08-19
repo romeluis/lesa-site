@@ -8,10 +8,12 @@ import Navbar from "./components/Navbar.js";
 //Pages
 import Home from "./pages/Home";
 import Events from "./pages/Events";
+
 import Team from "./pages/Team";
 import Resources from "./pages/Resources";
 import Join from "./pages/Join";
 import Test from "./pages/Test";
+import EventInfo from "./components/EventInfo";
 
 function Website() {
   return (
@@ -25,6 +27,9 @@ function Website() {
             </Route>
             <Route path="/events">
               <Events/>
+            </Route>
+            <Route path="/events/:id">
+              <EventInfo/>
             </Route>
             <Route path="/team">
               <Team/>
