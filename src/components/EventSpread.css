@@ -16,6 +16,7 @@
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 .event-spread {
+    width: 100%;
     scrollbar-width: auto;
     scrollbar-color: var(--pink);
 }
@@ -36,11 +37,27 @@
     border: 3px solid #ffffff;
 }
 
+@media screen and (max-width: 800px) {
+    .event-spread {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-flow: row;
+    }
+    .preview-override {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .spread-loading-container-large {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
 .month-preview {
     display: flex;
     justify-content: space-between;
     gap: 1em;
-    aspect-ratio: 1 / 1;
+    min-height: 100px;
+    min-width: 175px;
 
     background-color: var(--light-grey);
     border-radius: 1em;

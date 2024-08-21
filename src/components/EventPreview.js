@@ -54,13 +54,14 @@ const EventPreview = (props) => {
     const selectedSize = props.fontSize;
     const widthMax = props.maxWidth;
     const widthMin = props.minWidth;
+    const span = props.spanOverride;
 
     const eventInfo = props.eventInfo;
     const processedEventInfo = new EventPreviewDisplay();
     processedEventInfo.create(eventInfo);
 
     return (  
-        <Link className="link-container" style={{fontSize: selectedSize}} to={"/events/" + eventInfo.id} key={eventInfo.id}>
+        <Link className={"link-container " + (span == null ? "" : "preview-override")} style={{fontSize: selectedSize}} to={"/events/" + eventInfo.id} key={eventInfo.id}>
             <div className="preview-container" style={{maxWidth: widthMax, minWidth: widthMin}}>
                 <div className="preview-content">
                     <h2 className="date-title">{processedEventInfo.dateString}</h2>
