@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import ButtonDropDown from "./ButtonDropDown";
 import EventPreview from "./EventPreview";
 import "./EventBrowser.css";

@@ -19,7 +19,7 @@
 
 .preview-decoration {
     display: block;
-    width: 1.1em;
+    min-width: 1.1em;
 }
 
 .preview-content {

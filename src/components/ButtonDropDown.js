@@ -13,7 +13,6 @@ const ButtonDropDown = (props) => {
     const callback = props.onChangeFunction;
 
     const selectedOption = props.selectedOption;
-    const setSelectedOption = props.changeOption;
 
     const [dropDownState, setDropDownState] = useState(false);
     const [currentOptionIndex, setCurrentOptionIndex] = useState(0);

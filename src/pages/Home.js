@@ -49,7 +49,7 @@ const Home = () => {
             </div>
 
             <h1 className="section-heading"> Find your place on campus.</h1>
-            <img id="events-underline" src={pinkUnderline}></img>
+            <img id="events-underline" src={pinkUnderline} alt=""></img>
             <EventSpread maxPreviews={2} maxMonths={6}/>
 
 
