@@ -28,7 +28,7 @@ function Website() {
             <Route exact path="/events">
               <Events/>
             </Route>
-            <Route path="/events/:id">
+            <Route exact path="/events/:id">
               <EventInfo/>
             </Route>
             <Route path="/team">

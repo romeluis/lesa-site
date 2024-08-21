@@ -4,6 +4,7 @@ import arrow from "../assets/white-link-icon.svg";
 import { isUpcoming, isDateSet, monthSectionShortForms } from "../utils/EventUtils";
 import useFetchJSON from "../utils/FetchJSON";
 import EventPreview from "./EventPreview";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 class EventSpreadController {
     constructor() {
@@ -48,7 +49,7 @@ class EventSpreadController {
                 numberString = this.eventsMonthlyHistogram[thisMonth].toString() + " Events";
             }
 
-            this.upcomingMonths.push({title: monthSectionShortForms[thisMonth], number: numberString});
+            this.upcomingMonths.push({title: monthSectionShortForms[thisMonth], number: numberString, monthIndex: (thisMonth % 2 === 0 ? thisMonth/2 : (thisMonth-1)/2)});
         }
 
     }
@@ -84,13 +85,13 @@ const EventSpread = (props) => {
                 ))}
             {!isPending && error === null &&
                 controller.upcomingMonths.map((month, index) => (
-                    <div className="month-preview" key={index}>
+                    <Link className="month-preview" key={index} to={"/events"}>
                         <div className="month-preview-text">
                             <h1>{month.title}</h1>
                             <p>{month.number}</p>
                         </div>
                         <img className="month-preview-decoration" src={arrow} alt=""/>
-                    </div>
+                    </Link>
                 ))}
             {(isPending || error) &&
                 <>
