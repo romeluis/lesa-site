@@ -66,7 +66,7 @@ class EventSpreadController {
 }
 
 const EventSpread = (props) => {
-    const {data: eventList, isPending, error} = useFetchJSON("http://api.lesauoft.com/events");
+    const {data: eventList, isPending, error} = useFetchJSON("https://api.lesauoft.com/events");
 
     const numberOfPreviews = props.maxPreviews;
     const numberOfMonths = props.maxMonths;
@@ -92,6 +92,19 @@ const EventSpread = (props) => {
                         <img className="month-preview-decoration" src={arrow} alt=""/>
                     </div>
                 ))}
+            {(isPending || error) &&
+                <>
+                <div className="spread-loading-container-large shimmerLoad"/>
+                <div className="spread-loading-container-large shimmerLoad"/>
+
+                <div className="spread-loading-container-small shimmerLoad"/>
+                <div className="spread-loading-container-small shimmerLoad"/>
+                <div className="spread-loading-container-small shimmerLoad"/>
+                <div className="spread-loading-container-small shimmerLoad"/>
+                <div className="spread-loading-container-small shimmerLoad"/>
+                <div className="spread-loading-container-small shimmerLoad"/>
+                </>
+            }
         </div>
     );
 }

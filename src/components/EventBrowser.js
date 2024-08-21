@@ -10,7 +10,7 @@ const EventBrowser = (props) => {
     const [sortState, setSortState] = useState("Date Ascending");
     const [filterState, setFilterState] = useState("None");
 
-    const {data: requestedEvents, isPending} = useFetchJSON(urlQuery);
+    const {data: requestedEvents, isPending, error} = useFetchJSON(urlQuery);
 
     const sortedEvents = useMemo(() => {
         let result = requestedEvents;
@@ -109,6 +109,14 @@ const EventBrowser = (props) => {
             {(sortedEvents != null) && (sortedEvents.length <= 0) &&
                 <div className="empty-events-container">
                     <h2 className="empty-events-message">No Events Found</h2>
+                </div>
+            }
+            {(isPending || error) &&
+                <div className="event-viewer">
+                    <div className="browser-loading-container shimmerLoad"/>
+                    <div className="browser-loading-container shimmerLoad"/>
+                    <div className="browser-loading-container shimmerLoad"/>
+                    <div className="browser-loading-container shimmerLoad"/>
                 </div>
             }
         </div>

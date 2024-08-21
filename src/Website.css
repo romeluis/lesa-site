@@ -223,6 +223,26 @@ h1,h2,h3,h4,h5,h6,p {
     }
 }
 
+.shimmerLoad {
+    animation-duration: 2.2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shimmer;
+    animation-timing-function: linear;
+    background: var(--light-grey);
+    background: linear-gradient(to right, var(--light-grey) 8%, var(--dark-grey) 18%, var(--light-grey) 33%);
+    background-size: 1200px 100%;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1200px 0;
+    }
+    100% {
+        background-position: 1200px 0;
+    }
+}
+
 
 .pink {
     background-color: var(--pink);

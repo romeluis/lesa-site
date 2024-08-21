@@ -64,3 +64,17 @@
     align-self: flex-end;
     width: 1.1em;
 }
+
+.spread-loading-container-large {
+    background-color: var(--light-grey);
+    border-radius: 1em;
+    min-width: 500px;
+    min-height: 250px;
+}
+
+.spread-loading-container-small {
+    background-color: var(--light-grey);
+    border-radius: 1em;
+    min-width: 250px;
+    min-height: 250px;
+}
