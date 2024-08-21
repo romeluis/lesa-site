@@ -10,6 +10,7 @@ const ButtonDropDown = (props) => {
     const colour = props.colour;
     const selectedStyle = props.buttonStyle;
     const selectedSize = props.size;
+    const callback = props.onChangeFunction;
 
     const selectedOption = props.selectedOption;
     const setSelectedOption = props.changeOption;
@@ -26,10 +27,10 @@ const ButtonDropDown = (props) => {
             {dropDownState &&
                 <div className="drop-down-options" style={{fontSize: selectedSize}} onMouseLeave={() => setDropDownState(false)}>
                     {options.map((option, index) => (
-                        <div className={"drop-down-option " + ((currentOptionIndex === index) ? "selected-option" : "")} style={{fontSize: selectedSize}} onClick={() => {
-                            setSelectedOption(options[index]);
+                        <div key={index} className={"drop-down-option " + ((currentOptionIndex === index) ? "selected-option" : "")} style={{fontSize: selectedSize}} onClick={() => {
                             setCurrentOptionIndex(index);
                             setDropDownState(false);
+                            callback(options[index]);
                         }}>
                             <p className="drop-down-option-text">{option}</p>
                         </div>

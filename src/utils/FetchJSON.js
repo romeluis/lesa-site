@@ -8,7 +8,7 @@ const useFetchJSON = (url) => {
     useEffect(() => {
         const abortController = new AbortController();
 
-        fetch(url, {signal: abortController.signal}) //Fetch Data
+        fetch(url, {signal: abortController.signal, mode: 'cors'}) //Fetch Data
         //Check result, throw error fetch failed
         .then(result => {
             if (!result.ok) {

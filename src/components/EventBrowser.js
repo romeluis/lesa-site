@@ -1,116 +1,112 @@
-import { useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ButtonDropDown from "./ButtonDropDown";
 import EventPreview from "./EventPreview";
 import "./EventBrowser.css";
+import useFetchJSON from "../utils/FetchJSON";
 
 const EventBrowser = (props) => {
+    const [urlQuery, setUrlQuery] = useState("https://api.lesauoft.com/events");
+
     const [sortState, setSortState] = useState("Date Ascending");
     const [filterState, setFilterState] = useState("None");
-    const requestedEvents = [{
-        "id":1,
-        "name":"Frosh Matriculation",
-        "day":31,
-        "month":8,
-        "year":2024,
-        "startHour":8,
-        "startMinute":0,
-        "endHour":9,
-        "endMinute":0,
-        "location":"Convocation Hall",
-        "type": "FROSH Event",
-        "price": 0,
-        "link":"0"
-    },
-    {
-        "id":2,
-        "name":"EngSoc Club Fair",
-        "day":1,
-        "month":9,
-        "year":2024,
-        "startHour":8,
-        "startMinute":0,
-        "endHour":15,
-        "endMinute":0,
-        "location":"Bahen",
-        "type": "FROSH Event",
-        "price": 0,
-        "link":"0"
-    },
-    {
-        "id":3,
-        "name":"International Student Welcome",
-        "day":0,
-        "month":9,
-        "year":2024,
-        "startHour":0,
-        "startMinute":0,
-        "endHour":0,
-        "endMinute":0,
-        "location":"TBD",
-        "type": "LESA Event",
-        "price": 0,
-        "link":"0"
-    },
-    {
-        "id":4,
-        "name":"2024 General Member Welcome",
-        "day":0,
-        "month":9,
-        "year":2024,
-        "startHour":0,
-        "startMinute":0,
-        "endHour":0,
-        "endMinute":0,
-        "location":"TBD",
-        "type": "LESA Event",
-        "price": 0,
-        "link":"0"
-    },
-    {
-        "id":5,
-        "name":"LESA Pub Crawl",
-        "day":0,
-        "month":10,
-        "year":2024,
-        "startHour":0,
-        "startMinute":0,
-        "endHour":0,
-        "endMinute":0,
-        "location":"TBD",
-        "type": "LESA Event",
-        "price": 30,
-        "link":"1"
-    },
-    {
-        "id":6,
-        "name":"Industry Professionals",
-        "day":0,
-        "month":10,
-        "year":2024,
-        "startHour":0,
-        "startMinute":0,
-        "endHour":0,
-        "endMinute":0,
-        "location":"TBD",
-        "type": "LESA Event",
-        "price": 0,
-        "link":"1"
-    }];
+
+    const {data: requestedEvents, isPending} = useFetchJSON(urlQuery);
+
+    const sortedEvents = useMemo(() => {
+        let result = requestedEvents;
+
+        if (result == null) {
+            return null;
+        }
+
+        if (sortState === "Price Ascending") {
+            result.sort((a, b) => a.price - b.price);
+        } else if (sortState === "Price Descending") {
+            result.sort((a, b) => b.price - a.price);
+        } else if (sortState === "Date Ascending") {
+            result.sort((x, y) => {
+                if (x.year > y.year) {
+                    return 1;
+                } else if (x.year < y.year) {
+                    return -1;
+                } else {
+                    if (x.month > y.month) {
+                        return 1;
+                    } else if (x.month < y.month) {
+                        return -1;
+                    } else {
+                        if (x.day > y.day) {
+                            return 1;
+                        } else if (x.day < y.day) {
+                            return -1;
+                        } else {
+                            return 0;
+                        }
+                    }
+                }
+            });
+        } else if (sortState === "Date Descending") {
+            result.sort((x, y) => {
+                if (x.year > y.year) {
+                    return -1;
+                } else if (x.year < y.year) {
+                    return 1;
+                } else {
+                    if (x.month > y.month) {
+                        return -1;
+                    } else if (x.month < y.month) {
+                        return 1;
+                    } else {
+                        if (x.day > y.day) {
+                            return -1;
+                        } else if (x.day < y.day) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    }
+                }
+            });
+        }
+
+        return result;
+    }, [requestedEvents, sortState]);
+
+    const changeFilter = (newOption) => {
+        setFilterState(newOption);
+        if (newOption === "None") {
+            setUrlQuery("https://api.lesauoft.com/events");
+        } else if (newOption === "LESA Event") {
+            setUrlQuery("https://api.lesauoft.com/events?type=LESA+Event");
+        } else if (newOption === "FROSH Event") {
+            setUrlQuery("https://api.lesauoft.com/events?type=FROSH+Event");
+        } else if (newOption === "UofT Event") {
+            setUrlQuery("https://api.lesauoft.com/events?type=UofT+Event");
+        } else if (newOption === "Community Event") {
+            setUrlQuery("https://api.lesauoft.com/events?type=Community+Event");
+        } else {
+            setUrlQuery("https://api.lesauoft.com/events");
+        }
+    }
+
+    const changeSort = (newOption) => {
+        setSortState(newOption);
+    }
 
     return (  
         <div>
             <div style={{display: "flex", gap:"1rem", marginTop: "1rem", alignItems: "center"}}>
-                <ButtonDropDown selectedOption={sortState} changeOption={setSortState} selectionText="Sort" size="1.125rem" options={["Date Ascending", "Date Descending", "Price Ascending", "Price Descending"]} colour="grey" buttonStyle="hoverOnly"/>
-                <ButtonDropDown selectedOption={filterState} changeOption={setFilterState} selectionText="Filter" size="1.125rem" options={["None", "LESA Event", "FROSH Event", "UofT Event", "Community Event"]} colour="grey" buttonStyle="hoverOnly"/>
+                <ButtonDropDown selectedOption={sortState} changeOption={setSortState} onChangeFunction={changeSort} selectionText="Sort" size="1.125rem" options={["Date Ascending", "Date Descending", "Price Ascending", "Price Descending"]} colour="grey" buttonStyle="hoverOnly"/>
+                <ButtonDropDown selectedOption={filterState} changeOption={setFilterState} onChangeFunction={changeFilter} selectionText="Filter" size="1.125rem" options={["None", "LESA Event", "FROSH Event", "UofT Event", "Community Event"]} colour="grey" buttonStyle="hoverOnly"/>
             </div>
 
-            {(requestedEvents.length > 0) && 
+            {(sortedEvents != null) && (sortedEvents.length > 0) && !isPending && 
             <div className="event-viewer">
-                {requestedEvents.map((event) => (
+                {sortedEvents.map((event) => (
                     <EventPreview eventInfo={event} fontSize="2.15rem" minWidth="500px" key={event.id}/>
                 ))}
             </div>}
-            {(requestedEvents.length <= 0) &&
+            {(sortedEvents != null) && (sortedEvents.length <= 0) &&
                 <div className="empty-events-container">
                     <h2 className="empty-events-message">No Events Found</h2>
                 </div>

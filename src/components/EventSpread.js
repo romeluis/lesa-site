@@ -66,7 +66,7 @@ class EventSpreadController {
 }
 
 const EventSpread = (props) => {
-    const {data: eventList, isPending, error} = useFetchJSON("http://localhost:3000/events.json");
+    const {data: eventList, isPending, error} = useFetchJSON("http://api.lesauoft.com/events");
 
     const numberOfPreviews = props.maxPreviews;
     const numberOfMonths = props.maxMonths;
