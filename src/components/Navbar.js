@@ -41,7 +41,7 @@ const Navbar = () => {
                 <img className="nav-logo" src={!menuStatus ? hamburgerIcon : hamburgerIconClosed} alt="Hamburger Menu"/>
             </div>}
             {screenStatus && menuStatus && 
-            <div className="nav-links">
+            <div className="nav-links" onClick={() => setMenuStatus(false)}>
                 <ButtonLink text="Events" fontSize="1.125rem" colour="white" buttonStyle="hoverOnly" linkTo="/events"/>
                 <ButtonLink text="Team" fontSize="1.125rem" colour="white" buttonStyle="hoverOnly" linkTo="/team"/>
                 <ButtonLink text="Resources" fontSize="1.125rem" colour="white" buttonStyle="hoverOnly" linkTo="/resources"/>

@@ -11,7 +11,7 @@
 
     border-radius: 1em;
 
-    font-size: 2.15rem;
+    font-size: 1.9rem;
 }
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
@@ -41,6 +41,7 @@
     .event-spread {
         grid-template-columns: 1fr 1fr;
         grid-auto-flow: row;
+        gap: 0.6em;
     }
     .preview-override {
         grid-column-start: 1;
@@ -49,7 +50,19 @@
     .spread-loading-container-large {
         grid-column-start: 1;
         grid-column-end: 3;
+
+        min-height: 150px !important;  
+        min-width: 0px !important;
     }
+    .spread-loading-container-small {
+        min-height: 150px !important;
+        min-width: 0px !important;
+    }
+    .month-preview {
+        font-size: 1.5rem !important;
+        min-height: 100px !important;
+    }
+    
 }
 
 .month-preview {
@@ -57,12 +70,11 @@
     justify-content: space-between;
     gap: 1em;
     min-height: 125px;
-    min-width: 175px;
 
     background-color: var(--light-grey);
     border-radius: 1em;
     padding: 1em;
-    font-size: 2.15rem;
+    font-size: 1.9rem;
 }
 .month-preview-text {
     display: flex;

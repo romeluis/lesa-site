@@ -278,6 +278,15 @@
     border: 3px solid #ffffff;
 }
 
+@media screen and (max-width: 1100px) {
+    #events-underline{
+        display: none;
+    }
+    .section-heading {
+        text-wrap: wrap;
+    }
+}
+
 @media screen and (max-width: 800px) {
     #about-underline{
         display: none;
@@ -294,7 +303,7 @@
         position: relative;
         z-index: 2;
         font-family: var(--about-heading-font);
-        font-size: var(--about-heading-font-size);
+        font-size: 3rem;
         color: var(--black);
         padding: var(--about-heading-padding);
     
