@@ -89,7 +89,7 @@ const EventInfo = (props) => {
                     </div>
                     <div>
                         <p className="detail-title">Other Information</p>
-                        <TagList tagList={EventController.tags} fontSize="0.8rem"/>
+                        <TagList tagList={EventController.tags} fontSize="0.7rem"/>
                     </div>
                     <div>
                         <p className="detail-title">Description</p>
