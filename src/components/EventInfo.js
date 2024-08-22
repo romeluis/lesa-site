@@ -2,7 +2,7 @@ import backIcon from "../assets/black-back-link-icon.svg";
 import "./EventInfo.css";
 import whiteArrow from "../assets/grey-link-icon.svg"
 
-import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useLocation, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import useFetchJSON from "../utils/FetchJSON";
 import ButtonRedirect from "./ButtonRedirect";
 import { formatEventPrice, formatEventRegistration, formatTime, isDateSet, monthFullForms } from "../utils/EventUtils";
@@ -58,10 +58,11 @@ const EventInfo = (props) => {
     }
 
     const userHistory = useHistory();
+    const userLocation = useLocation();
 
     return (  
         <div className="event-info-page-container">
-            <div className="back-button grey hoverOnly" onClick={() => userHistory.goBack()}>
+            <div className="back-button grey hoverOnly" onClick={() => {userLocation.key ? userHistory.goBack() : userHistory.push("../events")}}>
                 <img src={backIcon} alt=""/>
             </div>
             <h1 className="page-title">Event Details</h1>
