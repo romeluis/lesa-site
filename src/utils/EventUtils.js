@@ -32,7 +32,7 @@ export function isUpcoming(eventInfo, currentDay, currentMonth, currentYear) { /
 }
 
 export function formatTime(startHour, startMinute) {
-    return (startHour > 12 ? (startHour - 12).toString() : startHour.toString()) + ":" + (startMinute < 10 ? ("0" + startMinute.toString()) : startMinute.toString()) + (startHour > 12 ? "PM" : "AM");
+    return (startHour > 12 ? (startHour - 12).toString() : (startHour === 0 ? "12" : startHour.toString())) + ":" + (startMinute < 10 ? ("0" + startMinute.toString()) : startMinute.toString()) + (startHour > 12 ? "PM" : "AM");
 }
 
 export function formatEventPrice(eventPrice) {

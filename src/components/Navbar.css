@@ -51,4 +51,8 @@ header {
         justify-self: end;
         cursor: pointer;
     }
+    .nav-logo {
+        width: 2em;
+        padding: 0px 1em;
+    }
 }
