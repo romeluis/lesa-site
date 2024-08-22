@@ -33,7 +33,9 @@
     --red-shadow-transparent: #D9384600;
 
     --yellow: #F5C946;
+    --yellow-dark: rgb(236, 182, 20);
     --yellow-accent: #E38D3D;
+    --yellow-accent-dark: #b77231;
     --yellow-accent-shadow: #E38D3D90;
     --yellow-accent-shadow-transparent: #E38D3D00;
 
@@ -354,6 +356,16 @@ h1,h2,h3,h4,h5,h6,p {
 }
 .black-text {
     color: var(--black);
+}
+
+.stripped-yellow {
+    background: repeating-linear-gradient(
+    45deg,
+    var(--yellow),
+    var(--yellow) 10px,
+    var(--yellow-accent-dark) 10px,
+    var(--yellow-accent-dark) 20px
+    );
 }
 
 

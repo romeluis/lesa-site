@@ -1,6 +1,8 @@
+import UnderConstruction from "../components/UnderConstruction";
+
 const Team = () => {
     return (  
-        <h1>teampage</h1>
+        <UnderConstruction/>
     );
 }
  

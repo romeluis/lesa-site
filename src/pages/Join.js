@@ -1,6 +1,8 @@
+import UnderConstruction from "../components/UnderConstruction";
+
 const Join = () => {
     return (  
-        <h1>joinpage</h1>
+        <UnderConstruction/>
     );
 }
  

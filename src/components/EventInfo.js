@@ -26,7 +26,7 @@ class EventDisplay {
             this.dateString = eventInfo.day.toString() + " " + monthFullForms[eventInfo.month - 1] + " " + eventInfo.year.toString();
             this.timeString = formatTime(eventInfo.startHour, eventInfo.startMinute) + " - " + formatTime(eventInfo.endHour, eventInfo.endMinute);
         } else {
-            this.dateString = monthFullForms[eventInfo.month - 1] + " " + eventInfo.year.toString();
+            this.dateString = monthFullForms[eventInfo.month - 1] + " " + eventInfo.year.toString() + ", Exact Date TBD";
             this.timeString = "TBD";
         }
 

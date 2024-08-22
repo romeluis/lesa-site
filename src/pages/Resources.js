@@ -1,6 +1,8 @@
+import UnderConstruction from "../components/UnderConstruction";
+
 const Resources = () => {
     return ( 
-        <h1>resourcespage</h1>
+        <UnderConstruction/>
     );
 }
  
