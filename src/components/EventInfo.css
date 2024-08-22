@@ -8,7 +8,7 @@
 .back-button {
     width: 1.5rem;
 
-    padding: 0.7em 1em 0.6em 1em;
+    padding: 0.9em 1em 0.7em 1em;
 
     border-radius: 0.5em;
     border-width: 0.075em !important;
@@ -26,7 +26,13 @@
 
 .event-emoji {
     justify-self: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
+}
+.emoji-loading {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5em;
+    justify-self: center;
 }
 
 .event-details-container {
@@ -54,4 +60,20 @@
 .event-description {
     font-family: object_sans_regular;
     font-size: 1.2rem;
+}
+
+.event-details-loading1 {
+    border-radius: 0.5rem;
+    height: 2rem;
+    width: 13rem;
+}
+.event-details-loading2 {
+    border-radius: 0.5rem;
+    height: 2rem;
+    width: 20rem;
+}
+.event-details-loading3 {
+    border-radius: 0.5rem;
+    height: 2rem;
+    width: 15rem;
 }

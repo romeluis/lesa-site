@@ -4,7 +4,6 @@ import whiteArrow from "../assets/grey-link-icon.svg"
 
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import useFetchJSON from "../utils/FetchJSON";
-import TagList from "./TagList";
 import ButtonRedirect from "./ButtonRedirect";
 import { formatEventPrice, formatEventRegistration, formatTime, isDateSet, monthFullForms } from "../utils/EventUtils";
 
@@ -15,6 +14,7 @@ class EventDisplay {
         this.tags = [];
         this.colour = "pink";
         this.showButton = false;
+        this.showDescription = false;
     }
 
     create(eventInfo) {
@@ -27,11 +27,8 @@ class EventDisplay {
             this.timeString = formatTime(eventInfo.startHour, eventInfo.startMinute) + " - " + formatTime(eventInfo.endHour, eventInfo.endMinute);
         } else {
             this.dateString = monthFullForms[eventInfo.month] + " " + eventInfo.year.toString();
-            this.timeString = "Time TBD";
+            this.timeString = "TBD";
         }
-        let registration = formatEventRegistration(eventInfo.link);
-
-        let price = formatEventPrice(eventInfo.price);
 
         if (eventInfo.type === "FROSH Event") {
             this.colour  = "purple";
@@ -41,12 +38,12 @@ class EventDisplay {
             this.colour  = "orange";
         }
 
-        this.tags = [{text:price, style:"stroke", colour: this.colour, pulse: false}, 
-                     {text:registration, style:"stroke", colour: this.colour, pulse: (registration == "Register now!")}, 
-                     {text:eventInfo.type, style:"fill", colour: this.colour, pulse: false}]; 
-
         if (eventInfo.link !== "0" && eventInfo.link !== "1") {
             this.showButton = true;
+        }
+
+        if (eventInfo.description !== "NONE") {
+            this.showDescription = true;
         }
     }
 }
@@ -56,7 +53,7 @@ const EventInfo = (props) => {
     const {data: eventData, isPending, error} = useFetchJSON("https://api.lesauoft.com/events/" + id);
     const EventController = new EventDisplay();
 
-    if (!isPending && eventData.length > 0) {
+    if (!isPending && error == null && eventData.length > 0) {
         EventController.create(eventData[0]);
     }
 
@@ -69,6 +66,7 @@ const EventInfo = (props) => {
             </div>
             <h1 className="page-title">Event Details</h1>
             {!isPending && error == null &&  <h1 className="event-emoji">{eventData[0].emoji}</h1>}
+            {(isPending || error != null) &&  <div className="emoji-loading shimmerLoad"/>}
             {!isPending && error == null && 
                 <div className="event-details-container">
                     <div>
@@ -88,14 +86,48 @@ const EventInfo = (props) => {
                         <h2 className="event-info-data">{eventData[0].location}</h2>
                     </div>
                     <div>
-                        <p className="detail-title">Other Information</p>
-                        <TagList tagList={EventController.tags} fontSize="0.7rem"/>
+                        <p className="detail-title">Price</p>
+                        <h2 className="event-info-data">{formatEventPrice(eventData[0].price)}</h2>
                     </div>
                     <div>
+                        {EventController.showButton && <ButtonRedirect text="Registration" fontSize="1.25rem"colour={EventController.colour} buttonStyle="stroke" bold useIcon icon={whiteArrow} linkTo={eventData[0].link}/>}
+                        {!EventController.showButton && 
+                            <>
+                                <p className="detail-title">Registration</p>
+                                <p className="event-info-data">{formatEventRegistration(eventData[0].link)}</p>
+                            </>}
+                    </div>
+                    {EventController.showDescription && <div>
                         <p className="detail-title">Description</p>
                         <p className="event-description">{eventData[0].description}</p>
+                    </div>}
+                </div>}
+                {(isPending || error != null) && 
+                <div className="event-details-container">
+                    <div>
+                        <p className="detail-title">Event Title</p>
+                        <div className="event-details-loading3 shimmerLoad"/>
                     </div>
-                    {EventController.showButton && <ButtonRedirect text="Registration" fontSize="1.25rem"colour={EventController.colour} buttonStyle="stroke" bold useIcon icon={whiteArrow} linkTo={eventData[0].link}/>}
+                    <div>
+                        <p className="detail-title">Date</p>
+                        <div className="event-details-loading1 shimmerLoad"/>
+                    </div>
+                    <div>
+                        <p className="detail-title">Time</p>
+                        <div className="event-details-loading3 shimmerLoad"/>
+                    </div>
+                    <div>
+                        <p className="detail-title">Location</p>
+                        <div className="event-details-loading2 shimmerLoad"/>
+                    </div>
+                    <div>
+                        <p className="detail-title">Price</p>
+                        <div className="event-details-loading1 shimmerLoad"/>
+                    </div>
+                    <div>
+                        <p className="detail-title">Registration</p>
+                        <div className="event-details-loading3 shimmerLoad"/>
+                    </div>
                 </div>}
         </div>
     );
