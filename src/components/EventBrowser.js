@@ -94,7 +94,7 @@ const EventBrowser = (props) => {
     }
 
     return (  
-        <div>
+        <div style={{marginBottom: "2rem"}}>
             <div style={{display: "flex", gap:"1rem", marginTop: "1rem", alignItems: "center"}}>
                 <ButtonDropDown selectedOption={sortState} changeOption={setSortState} onChangeFunction={changeSort} selectionText="Sort" size="1.125rem" options={["Date Ascending", "Date Descending", "Price Ascending", "Price Descending"]} colour="grey" buttonStyle="hoverOnly"/>
                 <ButtonDropDown selectedOption={filterState} changeOption={setFilterState} onChangeFunction={changeFilter} selectionText="Filter" size="1.125rem" options={["None", "LESA Event", "FROSH Event", "UofT Event", "Community Event"]} colour="grey" buttonStyle="hoverOnly"/>

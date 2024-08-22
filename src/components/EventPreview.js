@@ -2,7 +2,7 @@ import arrow from "../assets/white-link-icon.svg";
 import "./EventPreview.css";
 
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { isDateSet, monthShortForms, monthFullForms } from "../utils/EventUtils";
+import { isDateSet, monthShortForms, monthFullForms, formatTime, formatEventPrice, formatEventRegistration } from "../utils/EventUtils";
 import TagList from "./TagList";
 
 class EventPreviewDisplay {
@@ -16,25 +16,15 @@ class EventPreviewDisplay {
     create(eventInfo) {
         if (isDateSet(eventInfo)) {
             this.dateString = eventInfo.day.toString() + " " + monthShortForms[eventInfo.month - 1];
-            this.startTimeString = ", " + (eventInfo.startHour > 12 ? (eventInfo.startHour - 12).toString() : eventInfo.startHour.toString()) + ":" + (eventInfo.startMinute < 10 ? ("0" + eventInfo.startMinute.toString()) : eventInfo.startMinute.toString()) + (eventInfo.startHour > 12 ? "PM" : "AM");
+            this.startTimeString = ", " + formatTime(eventInfo.startHour, eventInfo.startMinute);
         } else {
             this.dateString = monthFullForms[eventInfo.month - 1];
             this.startTimeString = ", Time TBD"
         }
 
-        let registration = "Registration not required";
-        if (eventInfo.link !== "0") {
-            if (eventInfo.link === "1") {
-                registration = "Registration TBA";
-            } else {
-                registration = "Register now!";
-            }
-        }
+        let registration = formatEventRegistration(eventInfo.link);
 
-        let price = "Free";
-        if (eventInfo.price != "0") {
-            price = "$" + eventInfo.price.toString();
-        }
+        let price = formatEventPrice(eventInfo.price);
 
         if (eventInfo.type === "FROSH Event") {
             this.colour  = "purple";

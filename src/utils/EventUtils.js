@@ -30,3 +30,27 @@ export function isUpcoming(eventInfo, currentDay, currentMonth, currentYear) { /
         return false;
     }
 }
+
+export function formatTime(startHour, startMinute) {
+    return (startHour > 12 ? (startHour - 12).toString() : startHour.toString()) + ":" + (startMinute < 10 ? ("0" + startMinute.toString()) : startMinute.toString()) + (startHour > 12 ? "PM" : "AM");
+}
+
+export function formatEventPrice(eventPrice) {
+    let price = "Free";
+    if (eventPrice != "0") {
+        price = "$" + eventPrice.toString();
+    }
+    return price
+}
+
+export function formatEventRegistration(eventLink) {
+    let registration = "Registration not required";
+        if (eventLink !== "0") {
+            if (eventLink === "1") {
+                registration = "Registration TBA";
+            } else {
+                registration = "Register now!";
+            }
+        }
+    return registration;
+}   
