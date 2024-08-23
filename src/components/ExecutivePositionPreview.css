@@ -23,3 +23,8 @@
     text-wrap: wrap;
     margin-bottom: 0.1em;
 }
+
+.disabled-link {
+    pointer-events: none;
+    cursor: default;
+}

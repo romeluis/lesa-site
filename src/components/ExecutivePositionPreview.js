@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import arrow from "../assets/white-link-icon.svg";
 import "./ExecutivePositionPreview.css";
 
@@ -15,6 +14,7 @@ const ExecutivePositionPreview = (props) => {
     let pulseStatus = false;
     let colour = "black";
     let tagStyle = "stroke";
+    let linkEnabled = false;
     if (isUpcomingGeneral(positionInfo.startDay - 1 , positionInfo.startMonth - 1, currentDate.getFullYear(), currentDate.getDate(), currentDate.getMonth(), currentDate.getFullYear())) {
         statusString = "Applications Open " + monthShortForms[positionInfo.startMonth - 1] + " " + positionInfo.startDay;
     } else {
@@ -23,6 +23,7 @@ const ExecutivePositionPreview = (props) => {
             tagStyle = "fill";
             colour = "orange"
             pulseStatus = true;
+            linkEnabled = true;
         } else {
             statusString = "Applications Closed";
         }
@@ -32,17 +33,17 @@ const ExecutivePositionPreview = (props) => {
                   {text: statusString, style: tagStyle, colour: colour, pulse: pulseStatus}]; 
 
     return (
-        <Link className="job-link-container" to={"../jobs/" + positionInfo.id}>
+        <a className={"job-link-container " + (linkEnabled ? "" : "disabled-link")} href={linkEnabled ? (positionInfo.link) : "/"}>
             <div className="executive-position-container" style={{fontSize: selectedSize}}>
                 <div className="preview-content">
                     <h1 className={"job-title " + selectedColour + "-text"} style={{fontSize: selectedSize}} >{positionInfo.name}</h1>
-                    <TagList tagList={tags} fontSize="0.4em"/>
+                    <TagList tagList={tags} fontSize="0.4em" wrap/>
                 </div>
                 <div className="preview-decoration">
                     <img src={arrow} alt=""/>
                 </div>
             </div>
-        </Link>
+        </a>
     );
 }
  
