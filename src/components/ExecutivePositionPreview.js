@@ -20,7 +20,7 @@ const ExecutivePositionPreview = (props) => {
     } else {
         if (isUpcomingGeneral(positionInfo.endDay - 1, positionInfo.endMonth - 1, currentDate.getFullYear(), currentDate.getDate(), currentDate.getMonth(), currentDate.getFullYear())) {
             statusString = "Apply Now until " + monthShortForms[positionInfo.endMonth - 1] + " " + positionInfo.endDay;
-            tagStyle = "fill";
+            //tagStyle = "fill";
             colour = "orange"
             pulseStatus = true;
             linkEnabled = true;
@@ -29,7 +29,7 @@ const ExecutivePositionPreview = (props) => {
         }
     }
 
-    const tags = [{text: positionInfo.commitment, style:"stroke", colour: "black", pulse: false}, 
+    const tags = [{text: positionInfo.commitment, style:"fill", colour: "orange", pulse: false}, 
                   {text: statusString, style: tagStyle, colour: colour, pulse: pulseStatus}]; 
 
     return (
