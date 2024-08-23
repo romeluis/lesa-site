@@ -31,6 +31,28 @@ export function isUpcoming(eventInfo, currentDay, currentMonth, currentYear) { /
     }
 }
 
+export function isUpcomingGeneral(day, month, year, currentDay, currentMonth, currentYear) { //true if event has not occured yet (does not check time)
+    let workingDay = day;
+
+    if (year === currentYear) {
+        if (month === currentMonth) {
+            if (workingDay > currentDay) {
+                return true;
+            } else {
+                return false
+            }
+        } else if (month > currentMonth) {
+            return true;
+        } else {
+            return false;
+        }
+    } else if (year > currentYear) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 export function formatTime(startHour, startMinute) {
     return (startHour > 12 ? (startHour - 12).toString() : (startHour === 0 ? "12" : startHour.toString())) + ":" + (startMinute < 10 ? ("0" + startMinute.toString()) : startMinute.toString()) + (startHour > 12 ? "PM" : "AM");
 }

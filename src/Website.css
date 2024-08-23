@@ -8,6 +8,7 @@
     --light-grey: #F7F7F7;
     --light-grey-shadow: #F7F7F790;
     --light-grey-shadow-transparent: #F7F7F700;
+    --less-light-grey: #e1e1e1;
     --dark-grey: #D3D3D3;
     --darkest-grey: #888888;
 
@@ -141,7 +142,7 @@ h1,h2,h3,h4,h5,h6,p {
         box-shadow: 0px 0px 0px 0px var(--pink-shadow);
     }
     70%{
-        box-shadow: 0px 0px 0px 10px var(--pink-shadow-transparent);
+        box-shadow: 0px 0px 0px 0.5em var(--pink-shadow-transparent);
     }
     100%{
     }
@@ -154,7 +155,7 @@ h1,h2,h3,h4,h5,h6,p {
         box-shadow: 0px 0px 0px 0px var(--green-shadow);
     }
     70%{
-        box-shadow: 0px 0px 0px 10px var(--green-shadow-transparent);
+        box-shadow: 0px 0px 0px 0.5em var(--green-shadow-transparent);
     }
     100%{
     }
@@ -167,7 +168,7 @@ h1,h2,h3,h4,h5,h6,p {
         box-shadow: 0px 0px 0px 0px var(--blue-shadow);
     }
     70%{
-        box-shadow: 0px 0px 0px 10px var(--blue-shadow-transparent);
+        box-shadow: 0px 0px 0px 0.5em var(--blue-shadow-transparent);
     }
     100%{
     }
@@ -180,7 +181,7 @@ h1,h2,h3,h4,h5,h6,p {
         box-shadow: 0px 0px 0px 0px var(--light-grey-shadow);
     }
     70%{
-        box-shadow: 0px 0px 0px 10px var(--light-grey-shadow-transparent);
+        box-shadow: 0px 0px 0px 0.5em var(--light-grey-shadow-transparent);
     }
     100%{
     }
@@ -193,7 +194,7 @@ h1,h2,h3,h4,h5,h6,p {
         box-shadow: 0px 0px 0px 0px var(--yellow-accent-shadow);
     }
     70%{
-        box-shadow: 0px 0px 0px 10px var(--yellow-accent-shadow-transparent);
+        box-shadow: 0px 0px 0px 0.5em var(--yellow-accent-shadow-transparent);
     }
     100%{
     }
@@ -206,7 +207,7 @@ h1,h2,h3,h4,h5,h6,p {
         box-shadow: 0px 0px 0px 0px var(--red-shadow);
     }
     70%{
-        box-shadow: 0px 0px 0px 10px var(--red-shadow-transparent);
+        box-shadow: 0px 0px 0px 0.5em var(--red-shadow-transparent);
     }
     100%{
     }
@@ -219,7 +220,7 @@ h1,h2,h3,h4,h5,h6,p {
         box-shadow: 0px 0px 0px 0px var(--pink-accent-shadow);
     }
     70%{
-        box-shadow: 0px 0px 0px 10px var(--pink-accent-shadow-transparent);
+        box-shadow: 0px 0px 0px 0.5em var(--pink-accent-shadow-transparent);
     }
     100%{
     }

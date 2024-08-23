@@ -34,8 +34,8 @@ class EventPreviewDisplay {
             this.colour  = "orange";
         }
 
-        this.tags = [{text:price, style:"stroke", colour: this.colour, pulse: false}, 
-                     {text:registration, style:"stroke", colour: this.colour, pulse: (registration == "Register now!")}, 
+        this.tags = [{text:price, style:"stroke", colour: "black", pulse: false}, 
+                     {text:registration, style:"stroke", colour: ((registration === "Register now!") ? this.colour : "black"), pulse: (registration === "Register now!")}, 
                      {text:eventInfo.type, style:"fill", colour: this.colour, pulse: false}]; 
     }
 }
@@ -57,7 +57,7 @@ const EventPreview = (props) => {
                     <h2 className="date-title">{processedEventInfo.dateString}</h2>
                     <div>
                         <h1 className={"event-title " + processedEventInfo.colour + "-text"} style={{fontSize: selectedSize}}>{eventInfo.name}</h1>
-                        <p className="event-info">{(eventInfo.location == "TBD" ? "Location TBD": eventInfo.location) + processedEventInfo.startTimeString}</p>
+                        <p className="event-info">{(eventInfo.location === "TBD" ? "Location TBD": eventInfo.location) + processedEventInfo.startTimeString}</p>
                     </div>
                     <TagList tagList={processedEventInfo.tags} fontSize="0.35em"/>
                 </div>

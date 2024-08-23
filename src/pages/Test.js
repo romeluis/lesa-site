@@ -9,6 +9,7 @@ import EventPreview from "../components/EventPreview";
 import EventSpread from "../components/EventSpread";
 import ButtonDropDown from "../components/ButtonDropDown";
 import { useState } from "react";
+import ExecutivePositionPreview from "../components/ExecutivePositionPreview";
 
 const Test = () => {
     var tagList = [{text:"test", style:"fill", colour: "pink", pulse: true},
@@ -100,6 +101,7 @@ const Test = () => {
     var article = [{header:"test", body:["test"]}];
     var articeltwo = [{header:"Lorem Ipsum", body:["es simplemente el texto de relleno de las imprentas y archivos de texto.", "Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500."]}]
 
+    const position = {id: 1, name: "Marketing Officer", startMonth: 8, startDay: 1, endMonth: 8, endDay: 5, commitment: "High Commitment"};
     return (  
         <div>
             <h1 style={{marginBottom: "1rem"}}>Tag List Component</h1>
@@ -174,6 +176,9 @@ const Test = () => {
             </div>
 
             <EventSpread maxPreviews={4} maxMonths={24}/>
+            
+            <h1 style={{marginBottom: "1rem", marginTop: "1rem"}}>Executive Preview Component</h1>
+            <ExecutivePositionPreview positionInfo={position} fontSize="2rem"/>
         </div>
     );
 }
