@@ -28,3 +28,12 @@
     pointer-events: none;
     cursor: default;
 }
+
+@media screen and (max-width: 800px) {
+    .job-title {
+        font-size: 0.7em !important;
+    }
+    .executive-position-container {
+        font-size: 0.7em !important;
+    }
+}
