@@ -24,7 +24,8 @@ const DetailViewer = (props) => {
 
             {/*Emoji + shimmerLoad*/}
             {!isPending && error == null &&  <h1 className="detail-emoji">{emoji}</h1>}
-            {(isPending || error != null) &&  <div className="emoji-loading shimmerLoad"/>}
+            {isPending && error == null &&  <div className="emoji-loading shimmerLoad"/>}
+            {!isPending && error != null  &&  <div className="emoji-loading shimmerError"/>}
 
             {/*Info Section*/}
             <div className="details-sub-container">
@@ -37,7 +38,7 @@ const DetailViewer = (props) => {
                     </div>
                 ))}
                 {/*Info Shimmer Load*/}
-                {(isPending || error != null) && 
+                {isPending && error == null && 
                     <>
                         <div>
                             <div className="details-title-loading shimmerLoad"/>
@@ -62,6 +63,34 @@ const DetailViewer = (props) => {
                         <div>
                             <div className="details-title-loading shimmerLoad"/>
                             <div className="details-loading3 shimmerLoad"/>
+                        </div>
+                    </>}
+                {/*Info Error Load*/}
+                {!isPending && error != null && 
+                    <>
+                        <div>
+                            <div className="details-title-loading shimmerError"/>
+                            <div className="details-loading2 shimmerError"/>
+                        </div>
+                        <div>
+                            <div className="details-title-loading shimmerError"/>
+                            <div className="details-loading1 shimmerError"/>
+                        </div>
+                        <div>
+                            <div className="details-title-loading shimmerError"/>
+                            <div className="details-loading3 shimmerError"/>
+                        </div>
+                        <div>
+                            <div className="details-title-loading shimmerError"/>
+                            <div className="details-loading1 shimmerError"/>
+                        </div>
+                        <div>
+                            <div className="details-title-loading shimmerError"/>
+                            <div className="details-loading2 shimmerError"/>
+                        </div>
+                        <div>
+                            <div className="details-title-loading shimmerError"/>
+                            <div className="details-loading3 shimmerError"/>
                         </div>
                     </>}
             </div>

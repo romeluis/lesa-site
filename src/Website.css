@@ -32,6 +32,7 @@
     --red: #D93846;
     --red-shadow: #D9384690;
     --red-shadow-transparent: #D9384600;
+    --red-accent: #B23040;
 
     --yellow: #F5C946;
     --yellow-dark: rgb(236, 182, 20);
@@ -232,8 +233,8 @@ h1,h2,h3,h4,h5,h6,p {
     animation-iteration-count: infinite;
     animation-name: shimmer;
     animation-timing-function: linear;
-    background: var(--light-grey);
-    background: linear-gradient(to right, var(--light-grey) 8%, var(--dark-grey) 18%, var(--light-grey) 33%);
+    background: var(--white);
+    background: linear-gradient(to right, var(--white) 8%, var(--light-grey) 18%, var(--white) 33%);
     background-size: 1200px 100%;
 }
 
@@ -245,7 +246,26 @@ h1,h2,h3,h4,h5,h6,p {
         background-position: 1200px 0;
     }
 }
+.shimmerError {
+    animation-duration: 2.2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shimmerError;
+    animation-timing-function: ease-in-out;
+    background: var(--light-grey);
+}
 
+@keyframes shimmerError {
+    0% {
+        background: var(--light-grey);
+    }
+    50% {
+        background: var(--red);
+    }
+    100% {
+        background: var(--light-grey);
+    }
+}
 
 .pink {
     background-color: var(--pink);

@@ -81,7 +81,7 @@ const EventSpread = (props) => {
         <div className="event-spread"> 
             {!isPending && error === null &&
                 controller.upcomingEvents.map((event) => (
-                    <EventPreview eventInfo={event} fontSize="1.9rem" minWidth="200px" key={event.id} spanOverride/>
+                    <EventPreview eventInfo={event} fontSize="1.9rem" minWidth="200px" key={event.id} spanOverride wrap={false}/>
                 ))}
             {!isPending && error === null &&
                 controller.upcomingMonths.map((month, index) => (
