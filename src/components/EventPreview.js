@@ -45,6 +45,7 @@ const EventPreview = (props) => {
     const widthMax = props.maxWidth;
     const widthMin = props.minWidth;
     const span = props.spanOverride;
+    const wrap = props.wrap;
 
     const eventInfo = props.eventInfo;
     const processedEventInfo = new EventPreviewDisplay();
@@ -59,7 +60,7 @@ const EventPreview = (props) => {
                         <h1 className={"event-title " + processedEventInfo.colour + "-text"} style={{fontSize: selectedSize}}>{eventInfo.name}</h1>
                         <p className="event-info">{(eventInfo.location === "TBD" ? "Location TBD": eventInfo.location) + processedEventInfo.startTimeString}</p>
                     </div>
-                    <TagList tagList={processedEventInfo.tags} fontSize="0.35em"/>
+                    <TagList wrap={wrap ? true : false} tagList={processedEventInfo.tags} fontSize="0.35em"/>
                 </div>
                 <div className="preview-decoration">
                     <img src={arrow} alt=""/>

@@ -27,6 +27,7 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 0.8em;
+    text-wrap: wrap;
 }
 .date-title {
     font-family: object_sans_regular;

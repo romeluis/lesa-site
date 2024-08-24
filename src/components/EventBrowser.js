@@ -103,7 +103,7 @@ const EventBrowser = (props) => {
             {(sortedEvents != null) && (sortedEvents.length > 0) && !isPending && 
             <div className="event-viewer">
                 {sortedEvents.map((event) => (
-                    <EventPreview eventInfo={event} fontSize="1.9rem" minWidth="200px" key={event.id}/>
+                    <EventPreview eventInfo={event} fontSize="1.9rem" minWidth="0px" key={event.id} wrap/>
                 ))}
             </div>}
             {(sortedEvents != null) && (sortedEvents.length <= 0) &&
