@@ -17,7 +17,7 @@ const DetailViewer = (props) => {
     return (  
         <div className="detail-page-container">
             {/*Top Bar*/}
-            <div className="back-button grey hoverOnly" onClick={() => {userLocation.key ? userHistory.goBack() : userHistory.push({defaultReturn})}}>
+            <div className="back-button grey hoverOnly" onClick={() => {userLocation.key ? userHistory.goBack() : userHistory.push(defaultReturn)}}>
                 <img src={backIcon} alt=""/>
             </div>
             <h1 className="detail-page-title">{pageTitle}</h1>
