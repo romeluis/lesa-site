@@ -41,3 +41,9 @@
 .hoverOnly:hover {
     background-color: var(--light-grey);
 }
+
+.disabled-link {
+    pointer-events: none;
+    cursor: default;
+    opacity: 50%;
+}

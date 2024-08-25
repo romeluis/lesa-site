@@ -24,11 +24,6 @@
     margin-bottom: 0.1em;
 }
 
-.disabled-link {
-    pointer-events: none;
-    cursor: default;
-}
-
 @media screen and (max-width: 800px) {
     .job-title {
         font-size: 0.7em !important;

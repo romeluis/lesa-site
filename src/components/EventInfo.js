@@ -20,7 +20,6 @@ class EventDisplay {
         }
 
         this.emoji = eventInfo.emoji;
-        let title = [{type: "text", title: "Event Title", body: eventInfo.name, colour: this.colour}];
 
         let dateString = "";
         let timeString = "";
@@ -52,6 +51,7 @@ class EventDisplay {
             buttonType = true;
             org = [{type: "text", title: "Organization", body: eventInfo.organization, colour: "black"}];
         }
+        let title = [{type: "text", title: "Event Title", body: eventInfo.name, colour: this.colour}];
 
         let button = [];
         if (eventInfo.link !== "0" && eventInfo.link !== "1") {
@@ -78,7 +78,7 @@ class EventDisplay {
 
 const EventInfo = () => {
     const {id} = useParams();
-    const {data: eventData, isPending, error} = useFetchJSON("https://api.leauoft.com/events/" + id);
+    const {data: eventData, isPending, error} = useFetchJSON("https://api.lesauoft.com/events/" + id);
     const EventController = new EventDisplay();
 
     const userHistory = useHistory();

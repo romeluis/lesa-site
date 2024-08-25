@@ -14,6 +14,7 @@ import Resources from "./pages/Resources";
 import Join from "./pages/Join";
 import Test from "./pages/Test";
 import EventInfo from "./components/EventInfo";
+import JobInfo from "./components/JobInfo";
 
 function Website() {
   return (
@@ -39,6 +40,9 @@ function Website() {
             </Route>
             <Route path="/join">
               <Join/>
+            </Route>
+            <Route exact path="/jobs/:id">
+              <JobInfo/>
             </Route>
             <Route path="/test">
               <Test/>

@@ -9,9 +9,10 @@ const ButtonRedirect = (props) => {
     const linkTo = props.linkTo;
     const bold = props.bold;
     const selectedSize = props.fontSize;
+    const disabled = props.disabled;
 
     return (  
-        <a href={linkTo} className="linker">
+        <a href={linkTo} className={"linker " + (disabled === true ? "disabled-link" : "")}>
             <div className={"button " + colour + " " + selectedStyle} style={{fontSize: selectedSize}}> 
                 <p className={bold === true ? "bold" : ""}>{text}</p>
                 {useIcon === true && <img className="button-image" alt="" src={icon}/>}

@@ -3,6 +3,7 @@ import "./ExecutivePositionPreview.css";
 
 import { isUpcomingGeneral, monthShortForms } from "../utils/EventUtils";
 import TagList from "./TagList";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const ExecutivePositionPreview = (props) => {
     const positionInfo = props.positionInfo;
@@ -33,7 +34,7 @@ const ExecutivePositionPreview = (props) => {
                   {text: statusString, style: tagStyle, colour: colour, pulse: pulseStatus}]; 
 
     return (
-        <a className={"job-link-container " + (linkEnabled ? "" : "disabled-link")} href={linkEnabled ? (positionInfo.link) : "/"}>
+        <Link className="job-link-container" to={"../jobs/" + positionInfo.id}>
             <div className="executive-position-container" style={{fontSize: selectedSize}}>
                 <div className="preview-content">
                     <h1 className={"job-title " + selectedColour + "-text"} style={{fontSize: selectedSize}} >{positionInfo.name}</h1>
@@ -43,7 +44,7 @@ const ExecutivePositionPreview = (props) => {
                     <img src={arrow} alt=""/>
                 </div>
             </div>
-        </a>
+        </Link>
     );
 }
  
