@@ -37,8 +37,11 @@ const Navbar = () => {
             </div>}
 
             {screenStatus && 
-            <div className="nav-hamburger" onClick={() => setMenuStatus(!menuStatus)}>
-                <img className="nav-logo" src={!menuStatus ? hamburgerIcon : hamburgerIconClosed} alt="Hamburger Menu"/>
+            <div className="nav-menu">
+                <ButtonLink text="Join Us" bold fontSize="1.3rem" colour="green" buttonStyle="fill" linkTo="/join"/>
+                <div className="nav-hamburger" onClick={() => setMenuStatus(!menuStatus)}>
+                    <img className="nav-logo" src={!menuStatus ? hamburgerIcon : hamburgerIconClosed} alt="Hamburger Menu"/>
+                </div>
             </div>}
             {screenStatus && menuStatus && 
             <div className="nav-links" onClick={() => setMenuStatus(false)}>
@@ -46,7 +49,6 @@ const Navbar = () => {
                 <ButtonLink text="Team" fontSize="1.125rem" colour="white" buttonStyle="hoverOnly" linkTo="/team"/>
                 <ButtonLink text="Resources" fontSize="1.125rem" colour="white" buttonStyle="hoverOnly" linkTo="/resources"/>
                 <ButtonRedirect text="Photo Albums" fontSize="1.125rem" colour="white" buttonStyle="hoverOnly" linkTo="https://drive.google.com/drive/folders/1-H9Icoxu5RQgw5Q87b0MOSuOGn4_h5Oj?usp=sharing"/>
-                <ButtonLink text="Join Us" bold fontSize="1.3rem" colour="green" buttonStyle="fill" linkTo="/join"/>
             </div>}
         </header>
     );

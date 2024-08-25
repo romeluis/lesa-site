@@ -59,7 +59,7 @@ export function formatTime(startHour, startMinute) {
 
 export function formatEventPrice(eventPrice) {
     let price = "Free";
-    if (eventPrice !== "0") {
+    if (eventPrice != "0") {
         price = "$" + eventPrice.toString();
     }
     return price

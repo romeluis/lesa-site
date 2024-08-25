@@ -15,10 +15,10 @@ const ExecutivePositionPreview = (props) => {
     let pulseStatus = false;
     let colour = "black";
     let tagStyle = "stroke";
-    if (isUpcomingGeneral(positionInfo.startDay - 1 , positionInfo.startMonth - 1, currentDate.getFullYear(), currentDate.getDate(), currentDate.getMonth(), currentDate.getFullYear())) {
+    if (isUpcomingGeneral(positionInfo.startDay, positionInfo.startMonth - 1, positionInfo.startYear, currentDate.getDate(), currentDate.getMonth(), currentDate.getFullYear())) {
         statusString = "Applications Open " + monthShortForms[positionInfo.startMonth - 1] + " " + positionInfo.startDay;
     } else {
-        if (isUpcomingGeneral(positionInfo.endDay - 1, positionInfo.endMonth - 1, currentDate.getFullYear(), currentDate.getDate(), currentDate.getMonth(), currentDate.getFullYear())) {
+        if (isUpcomingGeneral(positionInfo.endDay, positionInfo.endMonth - 1, positionInfo.endYear, currentDate.getDate(), currentDate.getMonth(), currentDate.getFullYear())) {
             statusString = "Apply Now until " + monthShortForms[positionInfo.endMonth - 1] + " " + positionInfo.endDay;
             //tagStyle = "fill";
             colour = "orange"

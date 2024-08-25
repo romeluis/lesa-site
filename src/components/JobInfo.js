@@ -18,13 +18,13 @@ class JobDisplay {
         }
 
         this.emoji = jobInfo.emoji;
-        let title = [{type: "text", title: "Job Title", body: jobInfo.name, colour: this.colour}];
+        let title = [{type: "text", title: "Position Title", body: jobInfo.name, colour: this.colour}];
         let division = [{type: "text", title: "Division", body: jobInfo.division, colour: "black"}];
         let commitment = [{type: "text", title: "Commitment Level", body: jobInfo.commitment, colour: "black"}];
         let meetingTime = [{type: "text", title: "Est. Meeting Time per Month", body: (jobInfo.meetingTime + " hours"), colour: "black"}];
 
-        let startString = jobInfo.startDay.toString() + " " + monthFullForms[jobInfo.startMonth - 1];
-        let endString = jobInfo.endDay.toString() + " " + monthFullForms[jobInfo.endMonth - 1];
+        let startString = jobInfo.startDay.toString() + " " + monthFullForms[jobInfo.startMonth - 1] + " " + jobInfo.startYear;
+        let endString = jobInfo.endDay.toString() + " " + monthFullForms[jobInfo.endMonth - 1] + " " + jobInfo.endYear;
 
         let dates = [{type: "text", title: "Applications open:", body: startString, colour: "black"},
                      {type: "text", title: "Applications close:", body: endString, colour: "black"}];
