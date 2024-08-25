@@ -15,7 +15,6 @@ const ExecutivePositionPreview = (props) => {
     let pulseStatus = false;
     let colour = "black";
     let tagStyle = "stroke";
-    let linkEnabled = false;
     if (isUpcomingGeneral(positionInfo.startDay - 1 , positionInfo.startMonth - 1, currentDate.getFullYear(), currentDate.getDate(), currentDate.getMonth(), currentDate.getFullYear())) {
         statusString = "Applications Open " + monthShortForms[positionInfo.startMonth - 1] + " " + positionInfo.startDay;
     } else {
@@ -24,7 +23,6 @@ const ExecutivePositionPreview = (props) => {
             //tagStyle = "fill";
             colour = "orange"
             pulseStatus = true;
-            linkEnabled = true;
         } else {
             statusString = "Applications Closed";
         }

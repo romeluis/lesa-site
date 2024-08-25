@@ -3,7 +3,7 @@ export const monthFullForms = ['January', 'February', 'March', 'April', 'May', '
 export const monthSectionShortForms = ['Early\nJan.', 'Late\nJan.', 'Early\nFeb.', 'Late\nFeb.', 'Early\nMar.', 'Late\nMar.', 'Early\nApr.', 'Late\nApr.', 'Early\nMay', 'Late\nMay', 'Early\nJune', 'Late\nJune', 'Early\nJuly', 'Late\nJuly', 'Early\nAug.', 'Late\nAug.', 'Early\nSept.', 'Late\nSept.', 'Early\nOct.', 'Late\nOct.', 'Early\nNov.', 'Late\nNov.', 'Early\nDec.', 'Late\nDec.'];
 
 export function isDateSet(eventInfo) { //true if the date is set
-    return eventInfo.day != 0;
+    return eventInfo.day !== 0;
 }
 
 export function isUpcoming(eventInfo, currentDay, currentMonth, currentYear) { //true if event has not occured yet (does not check time)
@@ -59,7 +59,7 @@ export function formatTime(startHour, startMinute) {
 
 export function formatEventPrice(eventPrice) {
     let price = "Free";
-    if (eventPrice != "0") {
+    if (eventPrice !== "0") {
         price = "$" + eventPrice.toString();
     }
     return price
