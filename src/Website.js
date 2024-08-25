@@ -12,7 +12,7 @@ import Events from "./pages/Events";
 import Team from "./pages/Team";
 import Resources from "./pages/Resources";
 import Join from "./pages/Join";
-import Test from "./pages/Test";
+//import Test from "./pages/Test";
 import EventInfo from "./components/EventInfo";
 import JobInfo from "./components/JobInfo";
 
@@ -44,9 +44,9 @@ function Website() {
             <Route exact path="/jobs/:id">
               <JobInfo/>
             </Route>
-            <Route path="/test">
+            {/*<Route path="/test">
               <Test/>
-            </Route>
+            </Route>*/}
           </Switch>
         </div>
       </div>
