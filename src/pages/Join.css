@@ -1,5 +1,4 @@
 .join-container {
-    height: 88vh;
     width: 100%;
 
     display: flex;
@@ -32,6 +31,13 @@
     background-color: var(--light-grey);
     min-height: 200px;
     border-radius: 0.9em;
+}
+
+@media screen and (min-height: 800px) {
+    .join-container {
+        width: 100%;
+        height: 88vh;
+    }
 }
 
 @media screen and (max-width: 800px) {
