@@ -57,6 +57,7 @@
 .detail-entry-desc {
     font-family: object_sans_regular;
     font-size: 1.2rem;
+    line-height: 1.1em;
 }
 
 .details-title-loading {
