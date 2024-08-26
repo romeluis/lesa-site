@@ -1,5 +1,4 @@
 import ExecutivePreview from "../components/ExecutivePreview";
-import UnderConstruction from "../components/UnderConstruction";
 import useFetchJSON from "../utils/FetchJSON";
 
 const Team = () => {
