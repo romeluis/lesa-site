@@ -18,7 +18,7 @@ const ExecutivePreview = (props) => {
                 <img src={imageLink} alt="Portrait of Executive"/>
             </div>
             <div className="executive-card-info-container">
-                <h2 className="executive-card-name">{executiveInfo.fullName}</h2>
+                <h2 className="executive-card-name">{executiveInfo.fullName + " " + executiveInfo.country}</h2>
                 <TagList tagList={tags} wrap fontSize="0.9em"/>
                 <p className="executive-card-bio">{executiveInfo.bio}</p>
             </div>
