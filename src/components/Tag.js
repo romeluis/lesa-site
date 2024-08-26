@@ -7,7 +7,7 @@ const Tag = (props) => {
     const wrap = props.wrap;
 
     return (  
-        <p className={"tag " + colour + " " + style + " " + (pulseState ? (colour + "-pulse") : "")} style={{fontSize: selectedSize, textWrap: (wrap==true? "wrap" : "nowrap")}}>
+        <p className={"tag " + colour + " " + style + " " + (pulseState ? (colour + "-pulse") : "")} style={{fontSize: selectedSize, textWrap: (wrap===true? "wrap" : "nowrap")}}>
             {text}
         </p>
     );
