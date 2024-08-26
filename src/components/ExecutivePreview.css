@@ -1,0 +1,45 @@
+.join-page-title {
+    font-family: object_sans_regular;
+    font-size: 2.5rem;
+
+    margin-bottom: 1rem;
+}
+
+.executive-card {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+    border-radius: 2rem;
+    background-color: var(--light-grey);
+
+    font-size: 1rem;
+}
+.executive-load {
+    border-radius: 2rem;
+    min-height: 10rem;
+}
+
+.executive-card-image-container {
+    justify-self: center;
+    align-self: center;
+}
+.executive-card-image-container img {
+    width: 6em;
+}
+
+.executive-card-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.executive-card-name {
+    font-size: 2em;
+    font-family: object_sans_bold;
+}
+
+.executive-card-bio {
+    font-size: 1em;
+    font-family: object_sans_regular;
+    line-height: 1.1em;
+}
