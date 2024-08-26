@@ -1,0 +1,28 @@
+.resource-heading {
+    font-family: object_sans_bold;
+    color: var(--red);
+    font-size: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.resource-page-title {
+    font-family: object_sans_regular;
+    font-size: 2.5rem;
+
+    margin-bottom: 1rem;
+}
+
+.resource-body {
+    font-family: object_sans_regular;
+    color: var(--black);
+    line-height: 1.1rem;
+    font-size: 1.2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.resourceLoad {
+    min-height: 10rem;
+    border-radius: 2rem;
+}

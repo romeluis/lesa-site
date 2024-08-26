@@ -6,7 +6,7 @@ const Team = () => {
 
     return (  
         <>
-            <h1 className="join-page-title">Meet the LESA Team!</h1>
+            <h1 className="team-page-title">Meet the LESA Team!</h1>
             <div style={{display: "flex", gap: "2rem", flexDirection: "column", marginBottom: "2rem"}}>
                 {!isPending && error == null && 
                     executiveList.map((info) => (
