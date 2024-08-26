@@ -9,7 +9,7 @@ const TagList = (props) => {
     return (  
         <div className="tagContainer" style={{flexWrap: (wrap ? "wrap" : "no-wrap")}}>
             {tagList.map((tag, index) => (
-                <Tag key={index} text={tag.text} tagStyle={tag.style} colour={tag.colour} fontSize={selectedSize} style={{fontSize: selectedSize}} pulse={tag.pulse}/>
+                <Tag key={index} text={tag.text} tagStyle={tag.style} colour={tag.colour} fontSize={selectedSize} style={{fontSize: selectedSize}} wrap={wrap} pulse={tag.pulse}/>
             ))}
         </div>
     );

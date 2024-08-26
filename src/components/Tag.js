@@ -4,9 +4,10 @@ const Tag = (props) => {
     const style = props.tagStyle;
     const selectedSize = props.fontSize;
     const pulseState = props.pulse;
+    const wrap = props.wrap;
 
     return (  
-        <p className={"tag " + colour + " " + style + " " + (pulseState ? (colour + "-pulse") : "")} style={{fontSize: selectedSize}}>
+        <p className={"tag " + colour + " " + style + " " + (pulseState ? (colour + "-pulse") : "")} style={{fontSize: selectedSize, textWrap: (wrap==true? "wrap" : "nowrap")}}>
             {text}
         </p>
     );
