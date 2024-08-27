@@ -3,6 +3,7 @@ import ButtonDropDown from "./ButtonDropDown";
 import EventPreview from "./EventPreview";
 import "./EventBrowser.css";
 import useFetchJSON from "../utils/FetchJSON";
+import { isUpcoming } from "../utils/EventUtils";
 
 const EventBrowser = (props) => {
     const [urlQuery, setUrlQuery] = useState("https://api.lesauoft.com/events");
@@ -19,12 +20,20 @@ const EventBrowser = (props) => {
             return null;
         }
 
+        let filteredResult = []
+        const currentDate = new Date();
+        for (let index = 0; index < result.length; index++) {
+            if (isUpcoming(result[index], currentDate.getDate(), currentDate.getMonth() + 1, currentDate.getFullYear())) {
+                filteredResult.push(result[index]);
+            }
+        }
+
         if (sortState === "Price Ascending") {
-            result.sort((a, b) => a.price - b.price);
+            filteredResult.sort((a, b) => a.price - b.price);
         } else if (sortState === "Price Descending") {
-            result.sort((a, b) => b.price - a.price);
+            filteredResult.sort((a, b) => b.price - a.price);
         } else if (sortState === "Date Ascending") {
-            result.sort((x, y) => {
+            filteredResult.sort((x, y) => {
                 if (x.year > y.year) {
                     return 1;
                 } else if (x.year < y.year) {
@@ -46,7 +55,7 @@ const EventBrowser = (props) => {
                 }
             });
         } else if (sortState === "Date Descending") {
-            result.sort((x, y) => {
+            filteredResult.sort((x, y) => {
                 if (x.year > y.year) {
                     return -1;
                 } else if (x.year < y.year) {
@@ -69,7 +78,7 @@ const EventBrowser = (props) => {
             });
         }
 
-        return result;
+        return filteredResult;
     }, [requestedEvents, sortState]);
 
     const changeFilter = (newOption) => {
