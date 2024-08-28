@@ -37,7 +37,29 @@ class EventSpreadController {
                 }
             }
             return 0;
-        })
+        });
+
+        eventList.sort((x, y) => {
+            if (x.year > y.year) {
+                return 1;
+            } else if (x.year < y.year) {
+                return -1;
+            } else {
+                if (x.month > y.month) {
+                    return 1;
+                } else if (x.month < y.month) {
+                    return -1;
+                } else {
+                    if (x.day > y.day) {
+                        return 1;
+                    } else if (x.day < y.day) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }
+                }
+            }
+        });
 
         for (let index = 0; index < numMonths; index++) {
             let thisMonth = this.getNextMonth(index);
