@@ -21,7 +21,7 @@ class EventSpreadController {
     create(eventList, numPreviews, numMonths) {
         let index = 0;
         eventList.map((event) => {
-            if (isUpcoming(event, this.currentDay, this.currentMonth, this.currentYear)) {
+            if (isUpcoming(event, this.currentDay, this.currentMonth + 1, this.currentYear)) {
                 if (index < numPreviews) {
                     this.upcomingEvents.push(event);
                     index++;
