@@ -39,7 +39,7 @@ class EventSpreadController {
             return 0;
         });
 
-        eventList.sort((x, y) => {
+        this.upcomingEvents.sort((x, y) => {
             if (x.year > y.year) {
                 return 1;
             } else if (x.year < y.year) {
