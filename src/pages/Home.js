@@ -16,6 +16,7 @@ import ButtonLink from "../components/ButtonLink";
 import redUnderline from "../assets/red-underline.svg"
 import useFetchJSON from "../utils/FetchJSON";
 import EventSpread from "../components/EventSpread";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
     const {data: animationData, isPending, error} = useFetchJSON("https://api.lesauoft.com/assets/heroanimation");
@@ -31,6 +32,13 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>UofT LESA</title>
+                <meta
+                name="description"
+                content="The Latin Engineering Students' Association is the largest network of LATAM engineers at the University of Toronto! Learn more about what we do here."
+                />
+            </Helmet>
             <div className="hero">
                 <h1 id="hero-heading">Community,<br/>Culture,<br/>Connection.</h1>
                 <div id="hero-image"><img src={logoBadge} alt=""/></div>

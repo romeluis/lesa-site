@@ -3,12 +3,20 @@ import Article from "../components/Article";
 import ButtonRedirect from "../components/ButtonRedirect";
 import icon from "../assets/grey-link-icon.svg";
 import "./Resources.css";
+import { Helmet } from "react-helmet";
 
 const Resources = () => {
     const {data: pageElements, isPending, error} = useFetchJSON("https://api.lesauoft.com/resources");
 
     return ( 
         <div>
+            <Helmet>
+                <title>LESA Resources</title>
+                <meta
+                name="description"
+                content="Find resources to help International Students in their transition to life in Canada."
+                />
+            </Helmet>
             <h1 className="resource-page-title">LESA Resources</h1>
 
             <div style={{display: "flex", gap: "1rem", flexDirection: "column", marginBottom: "2rem"}}>

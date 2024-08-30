@@ -4,6 +4,7 @@ import ButtonRedirect from "../components/ButtonRedirect";
 import icon from "../assets/white-link-icon.svg";
 import useFetchJSON from "../utils/FetchJSON";
 import ExecutivePositionPreview from "../components/ExecutivePositionPreview";
+import { Helmet } from "react-helmet";
 
 
 const Join = () => {
@@ -14,6 +15,13 @@ const Join = () => {
 
     return (  
         <div className="join-container">
+            <Helmet>
+                <title>Join LESA!</title>
+                <meta
+                name="description"
+                content="Learn more about how to get involved in LESA; whether it be attending our events or helping organize them."
+                />
+            </Helmet>
             <div className="join-inner-container">
                 <Article articleInfo={articleInfo} articleStyle="fill" foregroundColour="green" backgroundColour="grey" fontSize="2.5rem" buttons={buttonList}/>   
                 <div className={"article-container grey-container fill-container"} style={{fontSize: "2.5rem", justifyContent: null}}>
