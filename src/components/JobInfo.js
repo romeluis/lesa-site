@@ -1,6 +1,6 @@
 import { useHistory, useLocation, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import DetailViewer from "./DetailViewer";
-import { monthFullForms } from "../utils/EventUtils";
+import { isUpcomingGeneral, monthFullForms } from "../utils/EventUtils";
 import useFetchJSON from "../utils/FetchJSON";
 import ButtonRedirect from "./ButtonRedirect";
 import icon from "../assets/grey-link-icon.svg";
@@ -10,6 +10,7 @@ class JobDisplay {
         this.pageInfo = [];
         this.colour = "orange";
         this.emoji = null;
+        this.currentDate = new Date();
     }
 
     create(jobInfo) { 
@@ -30,7 +31,7 @@ class JobDisplay {
                      {type: "text", title: "Applications close:", body: endString, colour: "black"}];
         
         let link = null;
-        if (jobInfo.link === "0") {
+        if (jobInfo.link === "0" || isUpcomingGeneral(jobInfo.startDay, jobInfo.startMonth, jobInfo.startYear, this.currentDate.getDate(), this.currentDate.getMonth() + 1, this.currentDate.getFullYear())) {
             link = [{type: "button", title: "Application Link", body: <ButtonRedirect bold text="Apply Now" fontSize="1.25rem" colour={this.colour}  buttonStyle="stroke" useIcon disabled icon={icon} linkTo={jobInfo.link}/>, colour: "black"}];
         } else {
             link = [{type: "button", title: "Application Link", body: <ButtonRedirect bold text="Apply Now" fontSize="1.25rem" colour={this.colour}  buttonStyle="stroke" useIcon icon={icon} linkTo={jobInfo.link}/>, colour: "black"}];
