@@ -19,13 +19,10 @@ class EventSpreadController {
     }
 
     create(eventList, numPreviews, numMonths) {
-        let index = 0;
         eventList.map((event) => {
             if (isUpcoming(event, this.currentDay, this.currentMonth + 1, this.currentYear)) {
-                if (index < numPreviews) {
-                    this.upcomingEvents.push(event);
-                    index++;
-                }
+                this.upcomingEvents.push(event);
+
                 if (isDateSet(event)) {
                     if (event.day <= 15) {
                         this.eventsMonthlyHistogram[2 * (event.month - 1)] += 1;
@@ -60,6 +57,8 @@ class EventSpreadController {
                 }
             }
         });
+
+        this.upcomingEvents.splice(numPreviews);
 
         for (let index = 0; index < numMonths; index++) {
             let thisMonth = this.getNextMonth(index);

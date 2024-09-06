@@ -29,7 +29,7 @@ class EventPreviewDisplay {
         if (eventInfo.type === "FROSH Event") {
             this.colour  = "purple";
         } else if (eventInfo.type === "UofT Event") {
-            this.colour  = "blue"
+            this.colour  = "dark-blue"
         } else if (eventInfo.type === "Community Event") {
             this.colour  = "orange";
         }

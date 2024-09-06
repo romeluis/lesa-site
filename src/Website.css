@@ -282,6 +282,11 @@ h1,h2,h3,h4,h5,h6,p {
     color: var(--blue);
     border-color: var(--blue);
 }
+.dark-blue {
+    background-color: var(--blue-accent);
+    color: var(--blue-accent);
+    border-color: var(--blue-accent);
+}
 .white {
     background-color: var(--white);
     color: var(--black) !important;
@@ -330,6 +335,10 @@ h1,h2,h3,h4,h5,h6,p {
     background-color: var(--blue);
     border-color: var(--blue);
 }
+.dark-blue-container {
+    background-color: var(--blue-accent);
+    border-color: var(--blue-accent);
+}
 .white-container {
     background-color: var(--white);
     border-color: var(--white);
@@ -359,6 +368,9 @@ h1,h2,h3,h4,h5,h6,p {
 }
 .blue-text {
     color: var(--blue);
+}
+.dark-blue-text {
+    color: var(--blue-accent);
 }
 .white-text {
     color: var(--white);
