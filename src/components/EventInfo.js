@@ -58,7 +58,7 @@ class EventDisplay {
             if (buttonType) {
                 button = {type: "button", title: "Link", body: <ButtonRedirect bold text="Learn More" fontSize="1.25rem" colour={this.colour}  buttonStyle="stroke" useIcon icon={icon} linkTo={eventInfo.link}/>, colour: "black"};
             } else {
-                button = {type: "button", title: "Registration", body: <ButtonRedirect bold text="Register Now" fontSize="1.25rem" colour={this.colour} buttonStyle="stroke" useIcon icon={icon} linkTo={eventInfo.link} bold/>, colour: "black"};
+                button = {type: "button", title: "Registration", body: <ButtonRedirect bold text="Register Now" fontSize="1.25rem" colour={this.colour} buttonStyle="stroke" useIcon icon={icon} linkTo={eventInfo.link}/>, colour: "black"};
             }
         } else if (eventInfo.link === "1") {
             button = [{type: "text", title: "Registration", body: "Registration TBA", colour: "black"}];
