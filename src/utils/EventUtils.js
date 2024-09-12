@@ -14,7 +14,7 @@ export function isUpcoming(eventInfo, currentDay, currentMonth, currentYear) { /
 
     if (eventInfo.year === currentYear) {
         if (eventInfo.month === currentMonth) {
-            if (workingDay > currentDay) {
+            if (workingDay >= currentDay) {
                 return true;
             } else {
                 return false
@@ -36,7 +36,7 @@ export function isUpcomingGeneral(day, month, year, currentDay, currentMonth, cu
 
     if (year === currentYear) {
         if (month === currentMonth) {
-            if (workingDay > currentDay) {
+            if (workingDay >= currentDay) {
                 return true;
             } else {
                 return false
