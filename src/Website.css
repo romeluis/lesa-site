@@ -27,7 +27,9 @@
     --blue: #80C0DA;
     --blue-accent: #304793;
     --blue-shadow: #80C0DA90;
+    --blue-accent-shadow: #30479390;
     --blue-shadow-transparent: #80C0DA00;
+    --blue-accent-shadow-transparent: #30479300;
 
     --red: #D93846;
     --red-shadow: #D9384690;
@@ -170,6 +172,19 @@ h1,h2,h3,h4,h5,h6,p {
     }
     70%{
         box-shadow: 0px 0px 0px 0.5em var(--blue-shadow-transparent);
+    }
+    100%{
+    }
+}
+.dark-blue-pulse {
+    animation: darkBluePulse 2s infinite;
+}
+@keyframes darkBluePulse {
+    0%{
+        box-shadow: 0px 0px 0px 0px var(--blue-accent-shadow);
+    }
+    70%{
+        box-shadow: 0px 0px 0px 0.5em var(--blue-accent-shadow-transparent);
     }
     100%{
     }
