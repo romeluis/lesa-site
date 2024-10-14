@@ -23,27 +23,7 @@ jobs:
       run: |
         npm install
         npm run build --if-present
+        ls
 
-    - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v3
-      with:
-        name: node-app
-        path: ./build
-        
-    - name: Create SSH key
-      run: |
-          mkdir -p ~/.ssh/
-          echo "$SSH_PRIVATE_KEY" > ../private.key
-          sudo chmod 600 ../private.key
-          echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
-      shell: bash
-      env:
-        SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-        SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
-        SSH_KEY_PATH: ${{ github.workspace }}/../private.key
 
-    - name: upload
-      run: |
-        $SSH_KEY_PATH
-        ssh -i $SSH_KEY_PATH lesaueqw@server329.web-hosting.com -p21098
 
