@@ -33,7 +33,7 @@ const Home = () => {
     return (
         <div>
             <Helmet>
-                <title>It worked!</title>
+                <title>UofT LESA</title>
                 <meta
                 name="description"
                 content="The Latin Engineering Students' Association is the largest network of LATAM engineers at the University of Toronto! Learn more about what we do here."
