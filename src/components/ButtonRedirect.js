@@ -12,7 +12,7 @@ const ButtonRedirect = (props) => {
     const disabled = props.disabled;
 
     return (  
-        <a href={linkTo} target="_blank" className={"linker" + (disabled === true ? " disabled-link" : "")}>
+        <a href={linkTo} target="_blank" rel="noreferrer" className={"linker" + (disabled === true ? " disabled-link" : "")}>
             <div className={"button " + colour + " " + selectedStyle} style={{fontSize: selectedSize}}> 
                 <p className={bold === true ? "bold" : ""}>{text}</p>
                 {useIcon === true && <img className="button-image" alt="" src={icon}/>}
