@@ -43,6 +43,7 @@ jobs:
         SSH_KEY_PATH: ${{ github.workspace }}/../private.key
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
