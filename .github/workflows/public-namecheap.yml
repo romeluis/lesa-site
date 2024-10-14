@@ -28,7 +28,7 @@ jobs:
       run: |
         ls
         pwd
-        rm -r /home/lesaueqw/public_html/*
+        rm -r ../../../../public_html/*
 
     - name: upload new site
       run: |
