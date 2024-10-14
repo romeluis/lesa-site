@@ -44,5 +44,6 @@ jobs:
 
     - name: upload
       run: |
+        $SSH_KEY_PATH
         ssh -i $SSH_KEY_PATH lesaueqw@server329.web-hosting.com -p21098
 
