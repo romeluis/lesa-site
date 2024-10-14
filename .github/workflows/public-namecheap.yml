@@ -29,6 +29,9 @@ jobs:
 
     - name: remove current site
       run: |
+        ls
+        $HOME
+        pwd
         rm -r /home/lesaueqw/public_html/*
 
     - name: upload new site
