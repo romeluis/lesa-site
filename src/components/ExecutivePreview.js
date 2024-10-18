@@ -21,6 +21,8 @@ const ExecutivePreview = (props) => {
                 <h2 className="executive-card-name">{executiveInfo.fullName + " " + executiveInfo.country}</h2>
                 <TagList tagList={tags} wrap fontSize="0.9em"/>
                 <p className="executive-card-bio">{executiveInfo.bio}</p>
+                {(executiveInfo.food !== "NONE") && <p className="executive-card-bio"><span className="bold">Favourite Dish: </span>{executiveInfo.food}</p>}
+                {(executiveInfo.song !== "NONE") && <p className="executive-card-bio"><span className="bold">Favourite Song: </span>{executiveInfo.song}</p>}
             </div>
         </div>
     );
