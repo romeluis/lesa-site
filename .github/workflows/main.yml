@@ -51,8 +51,9 @@ jobs:
     - name: Deploy to Namecheap
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ftp.lesauoft.com
-        username: siteupload@lesauoft.com
+        server: server329.web-hosting.com
+        username: lesaueqw
         password: ${{ secrets.FTP_PASSWORD }}
         protocol: ftps
         port: 21
+        server-dir: public_html/
