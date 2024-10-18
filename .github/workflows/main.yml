@@ -49,4 +49,11 @@ jobs:
         name: lesa-site
 
     - name: Deploy to Namecheap
-      run: ls -R
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ftpes://server329.web-hosting.com
+        username: ${{ secrets.FTP.USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        protocol: ftps
+        port: 21098
+        server-dir: /home/lesaueqw/public_html/
