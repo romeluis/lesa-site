@@ -27,8 +27,8 @@
     width: 14em;
 }
 @media screen and (max-width: 800px) {
-    .executive-card-image-container img {
-        width: 6em;
+    .executive-card {
+        flex-direction: column;
     }
 }
 
