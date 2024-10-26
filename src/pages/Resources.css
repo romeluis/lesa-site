@@ -2,8 +2,6 @@
     font-family: object_sans_bold;
     color: var(--red);
     font-size: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
 }
 
 .resource-page-title {
@@ -18,8 +16,6 @@
     color: var(--black);
     line-height: 1.1rem;
     font-size: 1.2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
 }
 
 .resourceLoad {
