@@ -12,6 +12,7 @@ class EventDisplay {
         this.colour = "pink";
         this.emoji = null;
         this.pageInfo = [];
+        this.cpif = false;
     }
 
     create(eventInfo) {
@@ -73,6 +74,7 @@ class EventDisplay {
 
         //Compile all the info
         this.pageInfo = title.concat(org, date, time, location, price, button, desc);
+        this.cpif = eventInfo.isCpsifFunded === 1
     }
 }
 
@@ -89,7 +91,7 @@ const EventInfo = () => {
     }
 
     return (  
-        <DetailViewer emoji={EventController.emoji} pageInfo={EventController.pageInfo} infoState={isPending} infoError={error} defaultReturn="../events" pageTitle="Event Details" history={userHistory} location={userLocation}/>
+        <DetailViewer cpif={EventController.cpif} emoji={EventController.emoji} pageInfo={EventController.pageInfo} infoState={isPending} infoError={error} defaultReturn="../events" pageTitle="Event Details" history={userHistory} location={userLocation}/>
     );
 }
  
