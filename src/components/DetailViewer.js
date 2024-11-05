@@ -1,4 +1,5 @@
 import backIcon from "../assets/black-back-link-icon.svg";
+import cpifIcon from "../assets/cpif.svg"
 
 import "./DetailViewer.css";
 
@@ -7,6 +8,7 @@ const DetailViewer = (props) => {
     const pageInfo = props.pageInfo;
     const pageTitle = props.pageTitle;
     const defaultReturn = props.defaultReturn;
+    const cpif = props.cpif
 
     const isPending = props.infoState;
     const error = props.infoError; 
@@ -23,9 +25,12 @@ const DetailViewer = (props) => {
             <h1 className="detail-page-title">{pageTitle}</h1>
 
             {/*Emoji + shimmerLoad*/}
-            {!isPending && error == null &&  <h1 className="detail-emoji">{emoji}</h1>}
-            {isPending && error == null &&  <div className="emoji-loading shimmerLoad"/>}
-            {!isPending && error != null  &&  <div className="emoji-loading shimmerError"/>}
+            <div>
+                {!isPending && error == null &&  <h1 className="detail-emoji">{emoji}</h1>}
+                {isPending && error == null &&  <div className="emoji-loading shimmerLoad"/>}
+                {!isPending && error != null  &&  <div className="emoji-loading shimmerError"/>}
+                {cpif && <img alt="This event is CPSIF Funded" src={cpifIcon}/>}
+            </div>
 
             {/*Info Section*/}
             <div className="details-sub-container">
