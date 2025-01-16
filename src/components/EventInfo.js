@@ -72,6 +72,11 @@ class EventDisplay {
             desc=[{type: "long-text", title: "Description", body: eventInfo.description, colour: "black"}];
         }
 
+        let calLink = []
+        if (eventInfo.calendarLink !== "NONE") {
+            button = {type: "button", title: "Calendar Invite", body: <ButtonRedirect bold text="Add to Calendar" fontSize="1.25rem" colour={this.colour}  buttonStyle="fill" useIcon icon={icon} linkTo={eventInfo.calendarLink}/>, colour: "black"};
+        }
+
         //Compile all the info
         this.pageInfo = title.concat(org, date, time, location, price, button, desc);
         this.cpif = eventInfo.isCpsifFunded === 1
