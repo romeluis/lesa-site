@@ -12,7 +12,7 @@ const ButtonAction = (props) => {
     const selectedSize = props.fontSize;
 
     return (
-        <div className={"button " + colour + " " + selectedStyle} style={{fontSize: selectedSize}} onClick={() => {action()}}> 
+        <div className={"button " + colour + " " + selectedStyle} style={{fontSize: selectedSize}} onClick={action}> 
                 <p className={bold === true ? "bold" : ""}>{text}</p>
                 {useIcon === true && <img className="button-image" alt="" src={icon}/>}
         </div>

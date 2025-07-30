@@ -57,7 +57,7 @@ const Form = (props) => {
 
         // If there are validation errors, alert user and return
         if (validationErrors.length > 0) {
-            alert(`Please fill in the following required fields: ${validationErrors.join(', ')}`);
+            alert("Please fill in all required fields.");
             return;
         }
 
@@ -106,7 +106,7 @@ const Form = (props) => {
             <div className="details-sub-container">
                 {!isPending && !error && formConfiguration.questions.map((question, index) => (
                     <div key={index} className="form-question">
-                        <label className="detail-entry-title">{question.title}</label>
+                        <label className="detail-entry-title">{question.title + (question.required ? " *" : "")}</label>
                         {question.type === "text" && (
                             <input
                                 type="text"
