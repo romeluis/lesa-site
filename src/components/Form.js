@@ -38,24 +38,50 @@ const Form = (props) => {
         setUserInputs(prev => ({...prev, [key]: value}));
     };
 
-    const handleSubmit = () => {
-        // Here you would typically send the data to a server
-        console.log("Form submitted:", userInputs);
-        // You can use the fetch API to send the data to the destination URL
-        // fetch(formConfiguration.destination, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(userInputs),
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        //     console.log('Success:', data);
-        // })
-        // .catch((error) => {
-        //     console.error('Error:', error);
-        // });
+    const handleSubmit = async () => {
+        // Validate required fields
+        const validationErrors = [];
+        
+        formConfiguration.questions.forEach(question => {
+            if (question.required) {
+                const userValue = userInputs[question.databaseKey];
+                
+                // Check if field is empty, undefined, or contains placeholder text
+                if (!userValue || 
+                    userValue.trim() === '' || 
+                    userValue === question.placeholder) {
+                    validationErrors.push(question.title);
+                }
+            }
+        });
+
+        // If there are validation errors, alert user and return
+        if (validationErrors.length > 0) {
+            alert(`Please fill in the following required fields: ${validationErrors.join(', ')}`);
+            return;
+        }
+
+        try {
+            // Send the data to the destination URL
+            const response = await fetch(formConfiguration.destination, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userInputs)
+            });
+
+            if (response.ok) {
+                alert('Form submitted successfully!');
+                // Optionally reset the form or redirect
+                setUserInputs({});
+            } else {
+                throw new Error(`Server responded with status: ${response.status}`);
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('There was an error submitting the form. Please try again.');
+        }
     };
 
     const userLocation = useLocation();
@@ -106,7 +132,7 @@ const Form = (props) => {
                 ))}
                 {!isPending && !error && (
                     <ButtonAction
-                        text="Submit" bold fontSize="1.3rem" colour="green" buttonStyle="fill" action={handleSubmit()}
+                        text="Submit" bold fontSize="1.3rem" colour="green" buttonStyle="fill" action={handleSubmit}
                     />
                 )}
             </div>
