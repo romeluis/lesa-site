@@ -82,7 +82,7 @@ const Form = (props) => {
             <div className="details-sub-container">
                 {!isPending && !error && formConfiguration.questions.map((question, index) => (
                     <div key={index} className="form-question">
-                        <label className="form-question-title">{question.title}</label>
+                        <label className="detail-entry-title">{question.title}</label>
                         {question.type === "text" && (
                             <input
                                 type="text"

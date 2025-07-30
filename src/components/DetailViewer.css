@@ -82,3 +82,12 @@
     height: 2rem;
     width: 15rem;
 }
+
+.form-text-input {
+    font-family: object_sans_regular;
+    font-size: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
