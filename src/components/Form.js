@@ -5,6 +5,8 @@ import ButtonAction from "./ButtonAction";
 
 import "./DetailViewer.css";
 import "./Form.css";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 export class FormConfiguration {
     constructor() {
@@ -31,7 +33,6 @@ const Form = (props) => {
     const formConfiguration = props.formConfiguration;
     const isPending = props.infoState;
     const error = props.infoError;
-    const defaultReturn = props.defaultReturn || "/";
 
     const [userInputs, setUserInputs] = useState({});
 
@@ -59,19 +60,23 @@ const Form = (props) => {
         // });
     };
 
+    const userLocation = useLocation();
+    const userHistory = useHistory();
+    const defaultReturn = "/join"
+
     return (
         <div className="detail-page-container">
-            <div className="back-button grey hoverOnly" onClick={() => props.history.push(defaultReturn)}>
-                <img src={backIcon} alt="Back"/>
+            {/*Top Bar*/}
+            <div className="back-button grey hoverOnly" onClick={() => {userLocation.key ? userHistory.goBack() : userHistory.push(defaultReturn)}}>
+                <img src={backIcon} alt=""/>
             </div>
-            {!isPending && !error && <h1 className="detail-page-title">{formConfiguration.title}</h1>}
-            {isPending && <div className="details-loading2 shimmerLoad"/>}
-            {!isPending && error && <div className="details-loading2 shimmerError"/>}
+            <h1 className="detail-page-title">{formConfiguration.title}</h1>
 
+            {/*Emoji + shimmerLoad*/}
             <div>
-                {!isPending && !error && <h1 className="detail-emoji">{formConfiguration.emoji}</h1>}
-                {isPending && <div className="emoji-loading shimmerLoad"/>}
-                {!isPending && error && <div className="emoji-loading shimmerError"/>}
+                {!isPending && error == null &&  <h1 className="detail-emoji">{formConfiguration.emoji}</h1>}
+                {isPending && error == null &&  <div className="emoji-loading shimmerLoad"/>}
+                {!isPending && error != null  &&  <div className="emoji-loading shimmerError"/>}
             </div>
 
             <div className="details-sub-container">
