@@ -92,7 +92,7 @@ const Form = (props) => {
                         {question.type === "dropdown" && (
                             <select
                                 onChange={(e) => handleInputChange(question.databaseKey, e.target.value)}
-                                className="form-dropdown-input"
+                                className="form-text-input"
                             >
                                 <option value="">{question.placeholder}</option>
                                 {question.options.map((option, optionIndex) => (
@@ -106,10 +106,7 @@ const Form = (props) => {
                 ))}
                 {!isPending && !error && (
                     <ButtonAction
-                        text="Submit"
-                        onClick={handleSubmit}
-                        className="form-submit-button"
-                        color="green"
+                        text="Submit" bold fontSize="1.3rem" colour="green" buttonStyle="fill" action={handleSubmit()}
                     />
                 )}
             </div>

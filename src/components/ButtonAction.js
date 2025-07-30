@@ -1,11 +1,21 @@
 import React from 'react';
 import './ButtonLink.css';
 
-const ButtonAction = ({ text, onClick, className, color }) => {
+const ButtonAction = (props) => {
+    const text = props.text;
+    const colour = props.colour;
+    const selectedStyle = props.buttonStyle;
+    const useIcon = props.useIcon;
+    const icon = props.icon;
+    const action = props.action;
+    const bold = props.bold;
+    const selectedSize = props.fontSize;
+
     return (
-        <button className={`button-link ${color} ${className}`} onClick={onClick}>
-            <p>{text}</p>
-        </button>
+        <div className={"button " + colour + " " + selectedStyle} style={{fontSize: selectedSize}} onClick={() => {action()}}> 
+                <p className={bold === true ? "bold" : ""}>{text}</p>
+                {useIcon === true && <img className="button-image" alt="" src={icon}/>}
+        </div>
     );
 };
 
