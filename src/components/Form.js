@@ -1,48 +1,107 @@
-import React from "react";
+import React, { useState } from "react";
 import backIcon from "../assets/black-back-link-icon.svg";
+import ButtonDropDown from "./ButtonDropDown";
+import ButtonAction from "./ButtonAction";
 
+import "./DetailViewer.css";
+import "./Form.css";
 
-class FormConfiguration {
+export class FormConfiguration {
     constructor() {
         this.title = ""
         this.emoji = ""
+        this.destination = "" // URL to send the form data to
 
-        this.userInputs = []
         this.questions = []
     }
 }
 
-const Form = (props) => {
-    const formConfiguration = props.configuration
-    const isPending = props.infoState;
-    const error = props.infoError; 
+export class Question {
+    constructor() {
+        this.title = ""
+        this.databaseKey = "" // key to store in the database
+        this.type = "text" // text | dropdown
+        this.placeholder = ""
+        this.options = [] // for dropdowns
+        this.required = false
+    }
+}
 
-    const userLocation = props.location;
-    const userHistory = props.history;
+const Form = (props) => {
+    const formConfiguration = props.configuration;
+    const isPending = props.infoState;
+    const error = props.infoError;
+    const defaultReturn = props.defaultReturn || "/";
+
+    const [userInputs, setUserInputs] = useState({});
+
+    const handleInputChange = (key, value) => {
+        setUserInputs(prev => ({...prev, [key]: value}));
+    };
+
+    const handleSubmit = () => {
+        // Here you would typically send the data to a server
+        console.log("Form submitted:", userInputs);
+        // You can use the fetch API to send the data to the destination URL
+        // fetch(formConfiguration.destination, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(userInputs),
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        //     console.log('Success:', data);
+        // })
+        // .catch((error) => {
+        //     console.error('Error:', error);
+        // });
+    };
 
     return (
         <div className="detail-page-container">
-            {/*Top Bar*/}
-            <div className="back-button grey hoverOnly" onClick={() => {userLocation.key ? userHistory.goBack() : userHistory.push(defaultReturn)}}>
-                <img src={backIcon} alt=""/>
+            <div className="back-button grey hoverOnly" onClick={() => props.history.push(defaultReturn)}>
+                <img src={backIcon} alt="Back"/>
             </div>
-            {!isPending && error == null && <h1 className="detail-page-title">{formConfiguration.title}</h1>}
-            {isPending && error == null &&  <div className="details-loading2 shimmerLoad"/>}
-            {!isPending && error != null  &&  <div className="details-loading2 shimmerError"/>}
+            {!isPending && !error && <h1 className="detail-page-title">{formConfiguration.title}</h1>}
+            {isPending && <div className="details-loading2 shimmerLoad"/>}
+            {!isPending && error && <div className="details-loading2 shimmerError"/>}
 
-            {/*Emoji + shimmerLoad*/}
             <div>
-                {!isPending && error == null &&  <h1 className="detail-emoji">{emoji}</h1>}
-                {isPending && error == null &&  <div className="emoji-loading shimmerLoad"/>}
-                {!isPending && error != null  &&  <div className="emoji-loading shimmerError"/>}
+                {!isPending && !error && <h1 className="detail-emoji">{formConfiguration.emoji}</h1>}
+                {isPending && <div className="emoji-loading shimmerLoad"/>}
+                {!isPending && error && <div className="emoji-loading shimmerError"/>}
             </div>
 
             <div className="details-sub-container">
-                {!isPending && error == null && formConfiguration.questions.map((question, index) => (
-                    <div key={index}>
-                        
+                {!isPending && !error && formConfiguration.questions.map((question, index) => (
+                    <div key={index} className="form-question">
+                        <label className="form-question-title">{question.title}</label>
+                        {question.type === "text" && (
+                            <input
+                                type="text"
+                                placeholder={question.placeholder}
+                                onChange={(e) => handleInputChange(question.databaseKey, e.target.value)}
+                                className="form-text-input"
+                            />
+                        )}
+                        {question.type === "dropdown" && (
+                            <ButtonDropDown
+                                options={question.options}
+                                onSelect={(option) => handleInputChange(question.databaseKey, option)}
+                            />
+                        )}
                     </div>
                 ))}
+                {!isPending && !error && (
+                    <ButtonAction
+                        text="Submit"
+                        onClick={handleSubmit}
+                        className="form-submit-button"
+                        color="green"
+                    />
+                )}
             </div>
         </div>
     );

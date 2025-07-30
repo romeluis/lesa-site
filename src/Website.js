@@ -12,6 +12,7 @@ import Events from "./pages/Events";
 import Team from "./pages/Team";
 import Resources from "./pages/Resources";
 import Join from "./pages/Join";
+import JoinForm from "./pages/JoinForm";
 //import Test from "./pages/Test";
 import EventInfo from "./components/EventInfo";
 import JobInfo from "./components/JobInfo";
@@ -38,8 +39,11 @@ function Website() {
             <Route path="/resources">
               <Resources/>
             </Route>
-            <Route path="/join">
+            <Route exact path="/join">
               <Join/>
+            </Route>
+            <Route exact path="/join/general">
+              <JoinForm/>
             </Route>
             <Route exact path="/jobs/:id">
               <JobInfo/>
