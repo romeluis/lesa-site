@@ -4,7 +4,6 @@ import ButtonDropDown from "./ButtonDropDown";
 import ButtonAction from "./ButtonAction";
 
 import "./DetailViewer.css";
-import "./Form.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
