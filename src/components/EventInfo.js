@@ -5,6 +5,7 @@ import useFetchJSON from "../utils/FetchJSON";
 import { formatEventPrice, formatTime, isDateSet, monthFullForms } from "../utils/EventUtils";
 import DetailViewer from "./DetailViewer";
 import ButtonRedirect from "./ButtonRedirect";
+import ButtonLink from "./ButtonLink";
 import icon from "../assets/grey-link-icon.svg";
 
 class EventDisplay {
@@ -55,7 +56,7 @@ class EventDisplay {
         let title = [{type: "text", title: "Event Title", body: eventInfo.name, colour: this.colour}];
 
         let button = [];
-        if (eventInfo.link !== "0" && eventInfo.link !== "1") {
+        if (eventInfo.link !== "0" && eventInfo.link !== "1" && eventInfo.link !== "2") {
             if (buttonType) {
                 button = {type: "button", title: "Link", body: <ButtonRedirect bold text="Learn More" fontSize="1.25rem" colour={this.colour}  buttonStyle="fill" useIcon icon={icon} linkTo={eventInfo.link}/>, colour: "black"};
             } else {
@@ -63,6 +64,8 @@ class EventDisplay {
             }
         } else if (eventInfo.link === "1") {
             button = [{type: "text", title: "Registration", body: "Registration TBA", colour: "black"}];
+        } else if (eventInfo.link === "2") {
+            button = {type: "button", title: "Registration", body: <ButtonLink bold text="Register Now" fontSize="1.25rem" colour={this.colour} buttonStyle="fill" useIcon icon={icon} linkTo={eventInfo.id + "/register"}/>, colour: "black"};
         } else {
             button = [{type: "text", title: "Registration", body: "Registration not required", colour: "black"}];
         }

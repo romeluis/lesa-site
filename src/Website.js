@@ -15,6 +15,7 @@ import Join from "./pages/Join";
 import JoinForm from "./pages/JoinForm";
 //import Test from "./pages/Test";
 import EventInfo from "./components/EventInfo";
+import EventForm from "./components/EventForm";
 import JobInfo from "./components/JobInfo";
 
 function Website() {
@@ -32,6 +33,9 @@ function Website() {
             </Route>
             <Route exact path="/events/:id">
               <EventInfo/>
+            </Route>
+            <Route exact path="/events/:id/register">
+              <EventForm/>
             </Route>
             <Route path="/team">
               <Team/>
