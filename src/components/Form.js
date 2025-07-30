@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import backIcon from "../assets/black-back-link-icon.svg";
-import ButtonDropDown from "./ButtonDropDown";
 import ButtonAction from "./ButtonAction";
 
 import "./DetailViewer.css";
@@ -91,10 +90,17 @@ const Form = (props) => {
                             />
                         )}
                         {question.type === "dropdown" && (
-                            <ButtonDropDown
-                                options={question.options}
-                                onSelect={(option) => handleInputChange(question.databaseKey, option)}
-                            />
+                            <select
+                                onChange={(e) => handleInputChange(question.databaseKey, e.target.value)}
+                                className="form-dropdown-input"
+                            >
+                                <option value="">{question.placeholder}</option>
+                                {question.options.map((option, optionIndex) => (
+                                    <option key={optionIndex} value={option}>
+                                        {option}
+                                    </option>
+                                ))}
+                            </select>
                         )}
                     </div>
                 ))}
