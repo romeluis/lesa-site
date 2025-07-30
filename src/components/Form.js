@@ -33,12 +33,14 @@ const Form = (props) => {
     const error = props.infoError;
 
     const [userInputs, setUserInputs] = useState({});
+    const [formSubmitted, setFormSubmitted] = useState(false);
 
     const handleInputChange = (key, value) => {
         setUserInputs(prev => ({...prev, [key]: value}));
     };
 
     const handleSubmit = async () => {
+        setFormSubmitted(true);
         // Validate required fields
         const validationErrors = [];
         
@@ -58,6 +60,25 @@ const Form = (props) => {
         // If there are validation errors, alert user and return
         if (validationErrors.length > 0) {
             alert("Please fill in all required fields.");
+            setFormSubmitted(false);
+            return;
+        }
+
+        // Additional validation for specific fields
+        const studentNumber = userInputs['student_number'];
+        const uoftEmail = userInputs['uoft_email'];
+
+        // Validate student number is an integer
+        if (studentNumber && (!Number.isInteger(Number(studentNumber)) || isNaN(studentNumber))) {
+            alert("Student number must be a valid integer.");
+            setFormSubmitted(false);
+            return;
+        }
+
+        // Validate UofT email ends with the correct domain
+        if (uoftEmail && !uoftEmail.trim().endsWith('mail.utoronto.ca') && !uoftEmail.trim().endsWith('utoronto.ca')) {
+            alert("UofT email must end with 'mail.utoronto.ca' or 'utoronto.ca'.");
+            setFormSubmitted(false);
             return;
         }
 
@@ -72,15 +93,27 @@ const Form = (props) => {
             });
 
             if (response.ok) {
-                alert('Form submitted successfully!');
+                const responseData = await response.json();
+                const message = responseData.message;
+                
+                if (message === "User has been updated.") {
+                    alert('Your information was found and updated successfully!');
+                } else if (message === "User has been created.") {
+                    alert('You have been registered successfully!');
+                } else {
+                    alert('Form submitted successfully!');
+                }
+                
                 // Optionally reset the form or redirect
                 setUserInputs({});
+                userLocation.key ? userHistory.goBack() : userHistory.push(defaultReturn)
             } else {
                 throw new Error(`Server responded with status: ${response.status}`);
             }
         } catch (error) {
             console.error('Error submitting form:', error);
             alert('There was an error submitting the form. Please try again.');
+            setFormSubmitted(true);
         }
     };
 
@@ -132,7 +165,7 @@ const Form = (props) => {
                 ))}
                 {!isPending && !error && (
                     <ButtonAction
-                        text="Submit" bold fontSize="1.3rem" colour="green" buttonStyle="fill" action={handleSubmit}
+                        text="Submit" bold fontSize="1.3rem" colour="green" buttonStyle="fill" action={handleSubmit} disabled={formSubmitted}
                     />
                 )}
             </div>

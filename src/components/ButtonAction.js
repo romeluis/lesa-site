@@ -10,9 +10,10 @@ const ButtonAction = (props) => {
     const action = props.action;
     const bold = props.bold;
     const selectedSize = props.fontSize;
+    const disabled = props.disabled;
 
     return (
-        <div className={"button " + colour + " " + selectedStyle} style={{fontSize: selectedSize}} onClick={action}> 
+        <div className={"button " + colour + " " + selectedStyle + (disabled ? " disabled" : "")} style={{fontSize: selectedSize}} onClick={() => {if (!disabled) action()}}> 
                 <p className={bold === true ? "bold" : ""}>{text}</p>
                 {useIcon === true && <img className="button-image" alt="" src={icon}/>}
         </div>
