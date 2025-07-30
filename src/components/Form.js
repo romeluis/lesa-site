@@ -28,7 +28,7 @@ export class Question {
 }
 
 const Form = (props) => {
-    const formConfiguration = props.configuration;
+    const formConfiguration = props.formConfiguration;
     const isPending = props.infoState;
     const error = props.infoError;
     const defaultReturn = props.defaultReturn || "/";
