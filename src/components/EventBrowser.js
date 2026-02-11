@@ -3,7 +3,7 @@ import ButtonDropDown from "./ButtonDropDown";
 import EventPreview from "./EventPreview";
 import "./EventBrowser.css";
 import useFetchJSON from "../utils/FetchJSON";
-import { isUpcoming } from "../utils/EventUtils";
+import { isUpcoming, getSortableDay } from "../utils/EventUtils";
 
 const EventBrowser = (props) => {
     const [urlQuery, setUrlQuery] = useState("https://api.lesauoft.com/events");
@@ -44,9 +44,9 @@ const EventBrowser = (props) => {
                     } else if (x.month < y.month) {
                         return -1;
                     } else {
-                        if (x.day > y.day) {
+                        if (getSortableDay(x) > getSortableDay(y)) {
                             return 1;
-                        } else if (x.day < y.day) {
+                        } else if (getSortableDay(x) < getSortableDay(y)) {
                             return -1;
                         } else {
                             return 0;
@@ -66,9 +66,9 @@ const EventBrowser = (props) => {
                     } else if (x.month < y.month) {
                         return 1;
                     } else {
-                        if (x.day > y.day) {
+                        if (getSortableDay(x) > getSortableDay(y)) {
                             return -1;
-                        } else if (x.day < y.day) {
+                        } else if (getSortableDay(x) < getSortableDay(y)) {
                             return 1;
                         } else {
                             return 0;

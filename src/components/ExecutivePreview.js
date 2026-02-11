@@ -6,7 +6,7 @@ const ExecutivePreview = (props) => {
 
     let imageLink = "https://lesauoft.com/defaultExecutive.svg";
     if (executiveInfo.image !== "NONE") {
-        imageLink = "https://lesauoft.com/portraits/" + executiveInfo.image + ".png";
+        imageLink = executiveInfo.image;
     }
 
     const tags = [{text: executiveInfo.position, style:"fill", colour: "green", pulse: false},
