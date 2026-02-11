@@ -31,7 +31,8 @@ class JobDisplay {
                      {type: "text", title: "Applications close:", body: endString, colour: "black"}];
         
         let link = null;
-        if (jobInfo.link === "0" || isUpcomingGeneral(jobInfo.startDay, jobInfo.startMonth, jobInfo.startYear, this.currentDate.getDate(), this.currentDate.getMonth() + 1, this.currentDate.getFullYear())) {
+        let applicationsClosed = !isUpcomingGeneral(jobInfo.endDay, jobInfo.endMonth, jobInfo.endYear, this.currentDate.getDate(), this.currentDate.getMonth() + 1, this.currentDate.getFullYear());
+        if (jobInfo.link === "0" || applicationsClosed || isUpcomingGeneral(jobInfo.startDay, jobInfo.startMonth, jobInfo.startYear, this.currentDate.getDate(), this.currentDate.getMonth() + 1, this.currentDate.getFullYear())) {
             link = [{type: "button", title: "Application Link", body: <ButtonRedirect bold text="Apply Now" fontSize="1.25rem" colour={this.colour}  buttonStyle="stroke" useIcon disabled icon={icon} linkTo={jobInfo.link}/>, colour: "black"}];
         } else {
             link = [{type: "button", title: "Application Link", body: <ButtonRedirect bold text="Apply Now" fontSize="1.25rem" colour={this.colour}  buttonStyle="stroke" useIcon icon={icon} linkTo={jobInfo.link}/>, colour: "black"}];

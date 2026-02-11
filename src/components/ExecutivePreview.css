@@ -29,7 +29,7 @@
     height: 14em;
     object-fit: cover;
     border-radius: 1rem;
-    border: 3px solid var(--green);
+    border: 5px solid var(--green);
 }
 @media screen and (max-width: 800px) {
     .executive-card {
