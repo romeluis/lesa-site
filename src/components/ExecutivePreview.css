@@ -22,9 +22,14 @@
 .executive-card-image-container {
     justify-self: center;
     align-self: center;
+    flex-shrink: 0;
 }
 .executive-card-image-container img {
     width: 14em;
+    height: 14em;
+    object-fit: cover;
+    border-radius: 1rem;
+    border: 3px solid var(--green);
 }
 @media screen and (max-width: 800px) {
     .executive-card {
