@@ -1,7 +1,7 @@
 import "./EventSpread.css";
 import arrow from "../assets/white-link-icon.svg";
 
-import { isUpcoming, isDateSet, monthSectionShortForms } from "../utils/EventUtils";
+import { isUpcoming, isDateSet, getSortableDay, monthSectionShortForms } from "../utils/EventUtils";
 import useFetchJSON from "../utils/FetchJSON";
 import EventPreview from "./EventPreview";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
@@ -47,9 +47,9 @@ class EventSpreadController {
                 } else if (x.month < y.month) {
                     return -1;
                 } else {
-                    if (x.day > y.day) {
+                    if (getSortableDay(x) > getSortableDay(y)) {
                         return 1;
-                    } else if (x.day < y.day) {
+                    } else if (getSortableDay(x) < getSortableDay(y)) {
                         return -1;
                     } else {
                         return 0;

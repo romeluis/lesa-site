@@ -6,6 +6,10 @@ export function isDateSet(eventInfo) { //true if the date is set
     return eventInfo.day !== 0;
 }
 
+export function getSortableDay(eventInfo) { //returns a day value for sorting; unknown dates (day=0) sort to end of month
+    return eventInfo.day === 0 ? 32 : eventInfo.day;
+}
+
 export function isUpcoming(eventInfo, currentDay, currentMonth, currentYear) { //true if event has not occured yet (does not check time)
     let workingDay = 31;
     if (isDateSet(eventInfo)) {
