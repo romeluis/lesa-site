@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const EventForm = (props) => {
     const {id} = useParams();
-    const {data: eventData, isPending, error} = useFetchJSON("https://api.lesauoft.com/events/" + id);
+    const {data: eventData, isPending, error} = useFetchJSON("https://api.lesauoft.com/events/" + id, "array");
 
     const [userInput, setUserInput] = useState("");
     const [formSubmitted, setFormSubmitted] = useState(false);

@@ -12,7 +12,7 @@ const Join = () => {
     const articleInfo = [{header:"Become a General Member", body: ["General Members are welcome to attend any of the events we host! This is the easiest way to get involved in LESA and all the fun things we do. "]}];
     const buttonList = [<ButtonLink text="Sign Up Now!" bold fontSize="1.3rem" colour="green" buttonStyle="fill" useIcon icon={icon} linkTo="/join/general"/>, <ButtonRedirect text="LESA Instagram" bold fontSize="1.3rem" colour="dark-grey" buttonStyle="fill" useIcon icon={icon} linkTo="https://instagram.com/uoft_lesa"/>, <ButtonRedirect text="LESA WhatsApp Groupchat" bold fontSize="1.3rem" colour="dark-grey" buttonStyle="fill" useIcon icon={icon} linkTo="https://chat.whatsapp.com/Cgr8DIriZNC3Qc9wjqonKA"/>];
 
-    const {data: jobsList, isPending, error} = useFetchJSON("https://api.lesauoft.com/jobs");
+    const {data: jobsList, isPending, error} = useFetchJSON("https://api.lesauoft.com/jobs", "array");
 
     return (  
         <div className="join-container">

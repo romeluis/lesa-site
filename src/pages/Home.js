@@ -50,8 +50,8 @@ const Home = () => {
                 </div>
                 <div id="hero-animation">
                     <div>
-                        {!isPending && <Lottie id="lottie-player" animationData={animationData} background="transparent" speed="1" loop play/>}
-                        {(error != null || isPending) && <img id="hero-poster" src={lottiePoster} alt="Animation of various LESA events"/>}
+                        {!isPending && error == null && animationData != null && <Lottie id="lottie-player" animationData={animationData} background="transparent" speed="1" loop play/>}
+                        {(error != null || isPending || animationData == null) && <img id="hero-poster" src={lottiePoster} alt="Animation of various LESA events"/>}
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@ const EventBrowser = (props) => {
     const [sortState, setSortState] = useState("Date Ascending");
     const [filterState, setFilterState] = useState("None");
 
-    const {data: requestedEvents, isPending, error} = useFetchJSON(urlQuery);
+    const {data: requestedEvents, isPending, error} = useFetchJSON(urlQuery, "array");
 
     const sortedEvents = useMemo(() => {
         let result = requestedEvents;

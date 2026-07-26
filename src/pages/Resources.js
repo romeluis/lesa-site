@@ -6,7 +6,7 @@ import "./Resources.css";
 import { Helmet } from "react-helmet";
 
 const Resources = () => {
-    const {data: pageElements, isPending, error} = useFetchJSON("https://api.lesauoft.com/resources");
+    const {data: pageElements, isPending, error} = useFetchJSON("https://api.lesauoft.com/resources", "array");
 
     return ( 
         <div>

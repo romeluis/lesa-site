@@ -88,7 +88,7 @@ class EventDisplay {
 
 const EventInfo = () => {
     const {id} = useParams();
-    const {data: eventData, isPending, error} = useFetchJSON("https://api.lesauoft.com/events/" + id);
+    const {data: eventData, isPending, error} = useFetchJSON("https://api.lesauoft.com/events/" + id, "array");
     const EventController = new EventDisplay();
 
     const userHistory = useHistory();

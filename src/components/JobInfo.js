@@ -46,7 +46,7 @@ class JobDisplay {
 
 const JobInfo = () => {
     const {id} = useParams();
-    const {data: jobData, isPending, error} = useFetchJSON("https://api.lesauoft.com/jobs/" + id);
+    const {data: jobData, isPending, error} = useFetchJSON("https://api.lesauoft.com/jobs/" + id, "array");
     const JobController = new JobDisplay();
 
     const userHistory = useHistory();
